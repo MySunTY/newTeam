@@ -28,6 +28,7 @@ public class loginServlet extends HttpServlet {
 		MemberDAO mDAO = MemberDAO.getInstance();
 		String m_num = request.getParameter("m_num");
 		String pw = request.getParameter("pw");
+		HttpSession session = request.getSession();
 		
 		System.out.println("doPost 확인");
 		System.out.println(m_num);
@@ -36,6 +37,7 @@ public class loginServlet extends HttpServlet {
 		int result = mDAO.loginCheck(m_num, pw);
 		System.out.println(result);
 		if(result == 1 ) {
+			session.setAttribute("m_num",m_num);
 			RequestDispatcher dis = request.getRequestDispatcher("main.jsp");
 			dis.forward(request,response);
 		}else if(result==0) {

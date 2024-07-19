@@ -64,6 +64,33 @@ public class MemberDAO {
 		return result;
 		
 	}
+	//onoff테이블에 데이터 넣기
+	public void insertOnoff(String m_num, int i) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		String sql = "insert into onoff(m_num, clicktime, clicktype) values(?,now(),?);";
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, m_num );
+			pstmt.setInt(2, i);
+			
+			
+		}catch(Exception e) {
+			System.out.println("insertOnoff 접속중 오류"+e);
+		}finally {
+			try {
+				if(pstmt!=null)pstmt.close();
+				if(conn!=null)conn.close();
+			}catch(Exception ex) {
+				System.out.println("insertOnoff 연결해제중 오류발생"+ex);
+			}
+		}
+		
+		
+	}// insertOnoff
 	
 	
 }

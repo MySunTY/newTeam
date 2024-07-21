@@ -24,7 +24,7 @@ public class loginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
-		PrintWriter out = response.getWriter();
+		
 		MemberDAO mDAO = MemberDAO.getInstance();
 		String m_num = request.getParameter("m_num");
 		String pw = request.getParameter("pw");

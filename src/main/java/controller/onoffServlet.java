@@ -22,8 +22,11 @@ public class onoffServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		String m_num = (String)session.getAttribute("m_num");
 		String uri = request.getRequestURI();
+		System.out.println(uri);
 		int lastSlash = uri.lastIndexOf("/");
+		System.out.println("lastSlash"+lastSlash);
 		String commandStr = uri.substring(lastSlash);
+		System.out.println("commandSTr"+commandStr);
 		
 		if(commandStr.equals("/on.one")) {
 			System.out.println("출근");

@@ -16,7 +16,13 @@ public class onoffServlet extends HttpServlet {
        
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("doget");
+		
+		request.getRequestDispatcher("onoff.jsp").forward(request,response);
+	}
+
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("dopost");
 		request.setCharacterEncoding("utf-8");
 		MemberDAO mDAO = MemberDAO.getInstance();
 		HttpSession session = request.getSession();
@@ -35,11 +41,6 @@ public class onoffServlet extends HttpServlet {
 			System.out.println("퇴근");
 			mDAO.insertOnoff(m_num, 2);
 		}
-	}
-
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 	}
 
 }

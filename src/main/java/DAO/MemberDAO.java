@@ -37,9 +37,9 @@ public class MemberDAO {
 			pstmt.setString(1, m_num);
 			rs = pstmt.executeQuery();
 			rs.next();
-			if(rs.next() && pw.equals(rs.getString("pw"))){
+			if(pw.equals(rs.getString("pw"))){
 				return 1 ; //로그인 성공
-			}else if(rs.next() && pw != rs.getString("pw")) {
+			}else if(pw != rs.getString("pw")) {
 				return 0 ; //비밀번호 틀림
 			}
 			

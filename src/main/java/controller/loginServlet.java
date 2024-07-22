@@ -30,7 +30,7 @@ public class loginServlet extends HttpServlet {
 		String pw = request.getParameter("pw");
 		HttpSession session = request.getSession();
 		
-		System.out.println("doPost 확인");
+		
 		System.out.println(m_num);
 		System.out.println(pw);
 		

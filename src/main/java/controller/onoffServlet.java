@@ -22,24 +22,26 @@ public class onoffServlet extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("dopost");
+		
 		request.setCharacterEncoding("utf-8");
 		MemberDAO mDAO = MemberDAO.getInstance();
 		HttpSession session = request.getSession();
 		String m_num = (String)session.getAttribute("m_num");
 		String uri = request.getRequestURI();
-		System.out.println(uri);
+		System.out.print(m_num);
 		int lastSlash = uri.lastIndexOf("/");
-		System.out.println("lastSlash"+lastSlash);
+		
 		String commandStr = uri.substring(lastSlash);
-		System.out.println("commandSTr"+commandStr);
+		
 		
 		if(commandStr.equals("/on.one")) {
 			System.out.println("출근");
 			mDAO.insertOnoff(m_num, 1);
+			request.getRequestDispatcher("onoff.jsp").forward(request, response);
 		}else if(commandStr.equals("/off.one")) {
 			System.out.println("퇴근");
 			mDAO.insertOnoff(m_num, 2);
+			request.getRequestDispatcher("onoff.jsp").forward(request, response);
 		}
 	}
 

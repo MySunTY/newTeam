@@ -76,7 +76,7 @@ public class MemberDAO {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, m_num );
 			pstmt.setInt(2, i);
-			
+			pstmt.execute();
 			
 		}catch(Exception e) {
 			System.out.println("insertOnoff 접속중 오류"+e);
@@ -91,6 +91,8 @@ public class MemberDAO {
 		
 		
 	}// insertOnoff
+	
+	
 	
 	
 }

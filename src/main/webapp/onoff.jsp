@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="ko">
     <head>
@@ -169,7 +170,7 @@
         <div id="wrap">
             <div class="top">
                 <div class="top1">LSP주식회사</div>
-                <div class="top2"><a href="#">로그인</a></div>
+                <div class="top2">${m_num }님 환영합니다</div>
             </div>
             <div class="mainmenu">
                 <ul>
@@ -190,6 +191,7 @@
                 </div>
                 <div class="onoff_btn">
                     <form method="post" action="on.one">
+                    	<input type="hidden" name="m_num" value="${m_num }">
                         <input type="submit" value="출근" class="on_btn">
                     </form>
                     <form method="post" action="off.one">

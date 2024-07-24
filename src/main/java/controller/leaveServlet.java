@@ -8,7 +8,7 @@ import DTO.VacationDTO;
 import DAO.VacationDAO;
 
 
-@WebServlet("/leave.do")
+@WebServlet("*.leave")
 public class leaveServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -30,6 +30,14 @@ public class leaveServlet extends HttpServlet {
 		String leave_start = request.getParameter("leave_start");
 		String leave_end = request.getParameter("leave_end");
 		String reason = request.getParameter("reason");
+		String bancha_time = request.getParameter("bancha_time");
+		
+		System.out.println(m_num);
+		System.out.println(leavetype);
+		System.out.println(leave_start);
+		System.out.println(leave_end);
+		System.out.println(reason);
+		
 		
 		
 		vDTO.setM_num(m_num);
@@ -37,8 +45,25 @@ public class leaveServlet extends HttpServlet {
 		vDTO.setLeave_start(leave_start);
 		vDTO.setLeave_end(leave_end);
 		vDTO.setReason(reason);
-		
+		vDTO.setBancha_time(bancha_time);
 		vDAO.insertVacation(vDTO);
+		
+		/*String uri = request.getRequestURI();
+		int lastSlash = uri.lastIndexOf("/");
+		String commandStr = uri.substring(lastSlash);
+		
+		if(commandStr=="/data1.leave") {
+			
+		}else if(commandStr=="/data2.leave") {
+			
+		}else if(commandStr=="/data3.leave") {
+			
+		}else if(commandStr=="/data4.leave") {
+			
+		}*/
+		
+		
+		
 		
 		
 	}

@@ -6,6 +6,7 @@ public class VacationDTO {
 	private String leave_start;
 	private String leave_end;
 	private String reason;
+	private String bancha_time;
 	public String getM_num() {
 		return m_num;
 	}
@@ -35,6 +36,12 @@ public class VacationDTO {
 	}
 	public void setReason(String reason) {
 		this.reason = reason;
+	}
+	public String getBancha_time() {
+		return bancha_time;
+	}
+	public void setBancha_time(String bancha_time) {
+		this.bancha_time = bancha_time;
 	}
 	
 	

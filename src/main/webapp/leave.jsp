@@ -166,48 +166,59 @@
                     <button>사직</button><br>
                 </div> 
                 
-                <form method="post" action="leave.do" >
-                    <!-- 연차 -->
+                <!-- 연차 -->
+                <form method="post" action="data1.leave" >                
                     <div class="form-2">
                         <div class="text">
-                        	<input type="hidden" name="data" value="연차">
+                        	<input type="hidden" name="leavetype" value="1">
                             <span>날짜를 선택하세요</span>&nbsp;&nbsp;  
-                                <input type="date" name="date"><br>
-                            <textarea name="text_area1" id="text_area" cols="80" rows="20" placeholder="사유를 입력해주세요"></textarea>
+                                <input type="date" name="leave_start"><br>
+                            <textarea name="reason" id="text_area" cols="80" rows="20" placeholder="사유를 입력해주세요"></textarea>
                         </div>
                         <input type="submit" value="제출!">
                     </div>
-
-                    <!--반차-->
+                 </form>
+                 
+                 <!--반차-->
+                 <form method="post" action="data2.leave" >                   
                     <div class="form-2" >
                         <div class="text">
-                        	<input type="hidden" name="data" value="반차">
+                        	<input type="hidden" name="leavetype" value="2">
+                        	
                             <span>날짜와 시간을 선택하세요</span>&nbsp;&nbsp;  
-                                <input type="datetime-local" name="datetime">
-                            <textarea name="text_area2" id="text_area" cols="80" rows="20" placeholder="사유를 입력해주세요"></textarea>
+                                <input type="date" name="leave_start">
+                            <select name="bancha_time">
+                            	<option value="am">오전반차</option>
+                            	<option value="pm">오후반차</option>
+                            </select>
+                            <textarea name="reason" id="text_area" cols="80" rows="20" placeholder="사유를 입력해주세요"></textarea>
                         </div>
                         <input type="submit" value="제출!">
                     </div>
-
-                    <!--휴가 -->
+                </form>
+                
+                <!--휴가 -->
+				<form method="post" action="data3.leave" >                    
                     <div class="form-2">
                         <div class="text">
-                        	<input type="hidden" name="data" value="휴가">
+                        	<input type="hidden" name="leavetype" value="3">
                             <span>휴가기간을 선택하세요</span>&nbsp;&nbsp;  
-                                <input type="date" name="leave1">
+                                <input type="date" name="leave_start">
                                 &nbsp;~&nbsp;
-                                <input type="date" name="leave2">
-                            <textarea name="text_area3" id="text_area" cols="80" rows="20" placeholder="사유를 입력해주세요"></textarea>
+                                <input type="date" name="leave_end">
+                            <textarea name="reason" id="text_area" cols="80" rows="20" placeholder="사유를 입력해주세요"></textarea>
                         </div>
                         <input type="submit" value="제출!">
                     </div>
-
-                    <!--사직서-->
+                </form>
+                
+                <!--사직-->
+				<form method="post" action="data4.leave" >                   
                     <div class="form-2">
                         <div class="text">
-                        	<input type="hidden" name="data" value="사직">
+                        	<input type="hidden" name="leavetype" value="4">
                             <span>사직서를 작성해서 제출해주세요</span><br><br>
-                            <textarea name="text_area4" id="text_area" cols="80" rows="20" placeholder="사직사유를 입력해주세요"></textarea>
+                            <textarea name="reason" id="text_area" cols="80" rows="20" placeholder="사직사유를 입력해주세요"></textarea>
                         </div>
                         <input type="submit" value="제출!">
                     </div>

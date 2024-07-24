@@ -176,7 +176,7 @@
                 <ul>
                     <li><a href="#">공지사항</a></li>
                     <li><a href="onoff.jsp">출퇴근관리</a></li>
-                    <li><a href="leave.jsp">휴가관리</a></li>
+                    <li><a href="vacation.leave">휴가관리</a></li>
                     <li><a href="#">업무일지</a></li>
                     <li><a href="#">관리자페이지</a></li>
                 </ul>

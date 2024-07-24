@@ -11,8 +11,8 @@ public class VacationDAO {
 		PreparedStatement pstmt = null;
 		MemberDAO mDAO = MemberDAO.getInstance();
 		
-		String sql = "insert into vacation(m_num,leavetype,leave_start,leave_end,reason)";
-		sql+= "values(?,?,?,?,?)";
+		String sql = "insert into vacation(m_num,leavetype,leave_start,leave_end,reason,bancha_time)";
+		sql+= "values(?,?,?,?,?,?)";
 		
 		try {
 			conn = mDAO.getConnection();
@@ -22,6 +22,7 @@ public class VacationDAO {
 			pstmt.setString(3,vDTO.getLeave_start());
 			pstmt.setString(4, vDTO.getLeave_end());
 			pstmt.setString(5, vDTO.getReason());
+			pstmt.setString(6, vDTO.getBancha_time());
 			
 			pstmt.execute();
 			

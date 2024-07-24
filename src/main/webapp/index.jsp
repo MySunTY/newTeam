@@ -1,86 +1,132 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+ <!DOCTYPE html>
+
 <html lang="ko">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>index.jsp</title>
-        <style>
-            *{
-                margin: 0 auto;
-                padding: 0;
-            }
-            /* 전체를 감싸고 있음 */
-            #wrap{
-                border: 1px solid black;
-                /* background-color: red; */
-                width: 1240px;
-                height: 800px;
-            }
-            /* 로고, 로그인 부분 감싸고 있음 */
-            .top{
-                background-color: skyblue;
-                height: 80px;
-            }
-            /* 로고 감싸고 있음 */
-            .top1{
-                width: 150px;
-                height: 100%;
-                float: left;
-                text-align: center;
-                line-height: 80px;
-            }
-            .top2{
-                width: 150px;
-                height: 100%;
-                float: right;
-                text-align: center;
-                line-height: 80px;
-            }
-            .top2 > a{
-                text-decoration: none;
-            }
-            /* 공지사항, 출퇴근관리, 휴가관리, 업무일지 등을 감싸고 있음 */
-            .mainmenu{
-                background-color: beige;
-                height: 80px;
-            }
-            .mainmenu > ul{
-                list-style: none; 
-                width: 800px;
-                text-align: center;
-                line-height: 80px;
-            }
-            .mainmenu > ul > li{
-                display: inline-block;
-                width: 100px;
-                text-align: center;
-            }
-            .mainmenu > ul > li > a{
-                text-decoration: none;
-            }
-            .mainmenu > ul > li:hover{
-                background-color: black;
-                color: white;
-            }
-        </style>
-    </head>
-    <body>
-        <div id="wrap">
-            <div class="top">
-                <div class="top1">LSP주식회사</div>
-                <div class="top2"><a href="login.jsp">로그인</a></div>
-            </div>
-            <div class="mainmenu">
-                <ul>
-                    <li><a href="#">공지사항</a></li>
-                    <li><a href="#">출퇴근관리</a></li>
-                    <li><a href="#">휴가관리</a></li>
-                    <li><a href="#">업무일지</a></li>
-                    <li><a href="#">관리자페이지</a></li>
-                </ul>
-            </div>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인 페이지</title>
+    <!--   -->
+
+    <style>
+        * {
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #c5c4c4;
+            font-size: 0.9em;
+        }
+        /* 전체를 감싸고 있음 */
+        body {}
+
+        #wrap {
+            width: 100%;
+            height: 1000px;
+        }
+
+        h1 {
+            color: #0e2d92;
+            margin-bottom: 20px;
+        }
+
+        .login {
+            width: 300px;
+            height: 180px;
+             
+            text-align: center;
+            padding: 15px;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #efeff0;
+            border-radius: 20px;
+            height: 300px;           
+            padding: 30px;
+        }
+
+        span {
+            display: inline-block;
+            width: 80px;
+        }
+
+        input[type="submit"] {
+            width: 200px;
+            height: 30px;
+            margin: 20px;
+        }
+
+        input {
+            /* 테두리 없앰 */
+            border-width: 0;
+            border-bottom: 1px solid #ddd;
+            width: 220px;
+            height: 40px;
+            border-radius: 20px;
+            padding-left: 30px;
+        }
+
+        span {
+            margin-bottom: 25px;
+        }
+
+        #sub {
+            background: #0e2d92;
+            color: #FFF;
+            width: 250PX;
+            height: 50px;
+            border-radius: 23px;
+            margin-top: 30px;
+          
+            /* 추후 수정예정 : 원인 불명 */
+            padding-right: 30px;
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+
+        <div class="login">
+            <form method="post" action="login.do">
+                <h1>로그인</h1>
+               
+                <p></p>
+                <span> </span><input type="text" name="m_num" autofocus placeholder="사번 "><br>
+                <span> </span><input type="password" name="pw" placeholder="비밀번호 "> <br>
+
+                <input id="sub" type="submit" value="로그인">
+
+               
+
+
+                <c:if test="${result==0 }">
+                    <script>
+                        let text = document.getElementById("sub");
+                        text.style.fontSize = '1.2em';
+
+                        // alert("비밀번호가 틀렸습니다");
+                    </script>
+                </c:if>
+                <c:if test="${result==-1 }">
+                    <script>
+                        // alert("회원가입이 되어있지 않습니다");
+
+
+                    </script>
+                </c:if>
+            </form>
         </div>
-    </body>
+    </div>
+</body>
+
 </html>

@@ -6,7 +6,8 @@ public class MemberDTO {
 	private String pw;
 	private int join_date;
 	private String address;
-	private int phone;
+	private String phone;
+	private String email;
 	public String getM_num() {
 		return m_num;
 	}
@@ -37,12 +38,19 @@ public class MemberDTO {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public int getPhone() {
+	public String getPhone() {
 		return phone;
 	}
-	public void setPhone(int phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
 	
 	
 }

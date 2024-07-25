@@ -79,8 +79,8 @@
 	                    <li><a href="#">공지사항</a></li>
 	                    <li><a href="onoff.one">출퇴근관리</a></li>
 	                    <li><a href="vacation.leave">휴가관리</a></li>
-	                    <li><a href="#">업무일지</a></li>
-	                    <li><a href="#">관리자페이지</a></li>
+	                    <li><a href="sheet.do">업무일지</a></li>
+	                    <li><a href="mypage.do">관리자페이지</a></li>
 	                </ul>
 	            </div>
 	        </div>    

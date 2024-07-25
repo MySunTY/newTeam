@@ -1,5 +1,6 @@
 package DAO;
 import java.sql.*;
+import DTO.MemberDTO;
 
 public class MemberDAO {
 	private MemberDAO() {
@@ -89,10 +90,50 @@ public class MemberDAO {
 			}
 		}
 		
-		
 	}// insertOnoff
 	
 	
+	//회원정보가져오기
+	public MemberDTO showMember(String m_num) {
+		MemberDTO mDTO = new MemberDTO();
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select * from member where m_num=?;";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, m_num);
+			rs = pstmt.executeQuery();
+			rs.next();
+			
+			mDTO.setM_num(m_num);
+			mDTO.setName(rs.getString("name"));
+			mDTO.setPw(rs.getString("pw"));
+			mDTO.setAddress(rs.getString("address"));
+			mDTO.setPhone(rs.getString("phone"));
+			mDTO.setEmail(rs.getString("email"));
+			
+			
+		}catch(Exception e) {
+			System.out.println("showmember(m_num) ing error "+e);
+		}finally {
+			try {
+				if(rs!=null)rs.close();
+				if(pstmt!=null)pstmt.close();
+				if(conn!=null)conn.close();
+				
+			}catch(Exception ex) {
+				System.out.println("showmember(m_num) end error "+ex);
+			}
+		}
+		
+		
+		
+		return mDTO;
+	}
 	
 	
 }

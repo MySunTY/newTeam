@@ -40,5 +40,7 @@ public class VacationDAO {
 		}
 		
 	}//insertVacation
+	
+	//깃 확인
 
 }

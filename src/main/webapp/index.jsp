@@ -41,7 +41,6 @@
              
             text-align: center;
             padding: 15px;
-
             position: absolute;
             top: 50%;
             left: 50%;
@@ -50,6 +49,9 @@
             border-radius: 20px;
             height: 300px;           
             padding: 30px;
+
+            /*240726_ley추가 */
+             box-shadow: 3px 7px 25px #cccccc;
         }
 
         span {

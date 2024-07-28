@@ -1,6 +1,19 @@
+
 @charset "UTF-8";
 
 /* 로고, 로그인 부분 감싸고 있음 */
+           
+            
+            * {
+                margin: 0 auto;
+                padding: 0;
+            }
+      
+           /* 240708_LEY가 추가함. 모든 마진,패딩 초기화 그래야 중간중간 간격이 안 벌어짐  */
+
+
+
+
             .top{
                 background-color: skyblue;
                 height: 80px;

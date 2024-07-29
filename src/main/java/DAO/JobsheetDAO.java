@@ -41,5 +41,39 @@ public class JobsheetDAO {
 		
 		
 	}//insertsheet
+	
+	public String showText(String getdate) {
+		MemberDAO mDAO = MemberDAO.getInstance();
+		String msg ="";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select text_area1 from jobsheet where sheet_date=?;";
+		try {
+			conn = mDAO.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, getdate);
+			rs = pstmt.executeQuery();
+			
+			rs.next();
+			msg = rs.getString("text_area1");
+			
+		}catch(Exception e) {
+			System.out.println("showText(getDate) ing error "+e);
+		}finally {
+			try {
+				if(rs!=null)rs.close();
+				if(pstmt!=null)pstmt.close();
+				if(conn!=null)conn.close();
+				
+			}catch(Exception ex) {
+				System.out.println("showText(datedate) end error "+ex);
+			}
+		}
+		return msg;
+		
+		
+	}//showText
 
 }//JobsheetDAO

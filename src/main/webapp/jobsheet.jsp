@@ -100,8 +100,9 @@
 	            <form id="form1" action="#">
 	                <div id="side">
 	                    <h2>업무일지 보관함</h2><br>
-	                    <span>작성일자: </span><input type="date" id="getdate"><br>                   
+	                    <span>작성일자: </span><input type="date" name="getdate" id="getdate"><br>                   
 	                    <input type="button" value="검색!" onclick="request_doPost()">
+	                    <div id="msg"></div>
 	                </div>
 	            </form>
 	        </div>
@@ -154,7 +155,7 @@
         	
         }
         function handleStateChange(){
-            console.log(XHR.readyState);				
+            				
             if(XHR.readyState==4){  
                 if(XHR.status==200){                     
                 	parseResult();

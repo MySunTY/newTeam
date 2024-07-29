@@ -133,7 +133,45 @@ public class MemberDAO {
 		
 		
 		return mDTO;
+	}//showMember
+	
+	public int adminCheck(String m_num) {
+		int result = 0;
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select admin from member where m_num =?;";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, m_num);
+			rs = pstmt.executeQuery();
+			rs.next();
+			result = rs.getInt("admin");
+			
+			
+			
+		}catch(Exception e) {
+			System.out.println("adminCheck(m_num) ing error "+e);
+		}finally {
+			try {
+				if(rs!=null)rs.close();
+				if(pstmt!=null)pstmt.close();
+				if(conn!=null)conn.close();
+				
+			}catch(Exception ex) {
+				System.out.println("adminCheck(m_num) end error "+ex);
+			}
+		}
+		
+		
+		
+		return result;
 	}
+	
+	
 	
 	
 }

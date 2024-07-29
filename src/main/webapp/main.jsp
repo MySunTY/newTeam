@@ -65,6 +65,22 @@
                 background-color: black;
                 color: white;
             }
+            .admin > ul{
+            	display: none;
+            	position: absolute;
+            }
+            .admin:hover > ul{
+                display: block;
+            }
+            .admin > ul > li:hover{
+            	background-color: black;
+                color: white;
+                width: 100px;
+                text-align: center;
+            }
+			.admin > ul > li > a{
+                text-decoration: none;
+            }
         </style>
     </head>
     <body>
@@ -80,7 +96,16 @@
 	                    <li><a href="onoff.one">출퇴근관리</a></li>
 	                    <li><a href="vacation.leave">휴가관리</a></li>
 	                    <li><a href="sheet.do">업무일지</a></li>
-	                    <li><a href="mypage.do">관리자페이지</a></li>
+	                    <li><a href="mypage.do">마이페이지</a></li>
+	                    <!-- 관리자 권한이 있는 자가 로그인 했을 경우 관리자페이지 메뉴 보이기 -->
+				        <c:if test="${result==1}">
+							<li class="admin">
+					        	관리자페이지
+					        	<ul>
+					        		<li><a href="#">신입사원 등록</a></li>
+					        	</ul>
+				        	</li>
+						</c:if>
 	                </ul>
 	            </div>
 	        </div>    

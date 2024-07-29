@@ -31,11 +31,13 @@ public class loginServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		
-		System.out.println(m_num);
-		System.out.println(pw);
+		
 		
 		int result = mDAO.loginCheck(m_num, pw);
-		System.out.println(result);
+		int adminCheck = mDAO.adminCheck(m_num);
+		request.setAttribute("result", adminCheck);
+		
+		System.out.println(adminCheck);
 		if(result == 1 ) {
 			session.setAttribute("m_num",m_num);
 			RequestDispatcher dis = request.getRequestDispatcher("main.jsp");

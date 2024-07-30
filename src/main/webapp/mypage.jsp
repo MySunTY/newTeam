@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="ko">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>마이페이지</title>
+        
         <style>
             *{
                 margin: 0 auto;
@@ -96,10 +98,15 @@
                 text-align: center;
                 margin-top: 20px;
             }
+            img{
+            	width:100px;
+            	height:100px;
+            }
         </style>
     </head>
     <body>
         <div id="wrap">
+        	
             <div class="top">
                 <div class="top1">LSP주식회사</div>
                 <div class="top2">${m_num }님 환영합니다</div>
@@ -122,7 +129,8 @@
                         <div class="picture_btn">
                             <!-- 사진은 관리자가 등록하고, 변경만 직원이 가능 -->
                             <div class="picture">
-                               <img src="">
+                               <img src="${mDTO.photo }">
+                               
                             </div>
                             <input type="submit" value="변경">
                         </div>
@@ -133,6 +141,9 @@
                             <span>연락처</span><input type="text" name="phone" value="${mDTO.phone }"><br>
                             <span>이메일</span><input type="email" name="email" value="${mDTO.email }"><br>
                             <span>주소</span><input type="text" name="address" value="${mDTO.address }"><br>
+                            
+                            
+                            
                         </div>
                         <!-- 버튼을 감싸고 있음 -->
                         <div class="btn">

@@ -6,6 +6,8 @@ import javax.servlet.annotation.*;
 import javax.servlet.http.*;
 import DAO.MemberDAO;
 import DTO.MemberDTO;
+import com.oreilly.servlet.*;
+import com.oreilly.servlet.multipart.*;
 
 
 @WebServlet("/mypage.do")
@@ -21,6 +23,7 @@ public class mypageServlet extends HttpServlet {
 		MemberDAO mDAO = MemberDAO.getInstance();
 		MemberDTO mDTO = new MemberDTO();
 		mDTO = mDAO.showMember(m_num);
+		
 		request.setAttribute("mDTO", mDTO);
 		request.getRequestDispatcher("mypage.jsp").forward(request, response);
 	}

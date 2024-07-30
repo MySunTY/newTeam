@@ -45,7 +45,7 @@
 	        <!-- 사원등록 -->
 	        <div class="contents">
 				<h2>사원 등록</h2>
-				<form method="post" action="">
+				<form method="post" enctype="multipart/form-data" action="register.do">
 					<!-- 사진과 이름, 사번 등을 감싸고 있음 -->
 					<div class="change">
 						<!-- 사진, 변경 버튼 감싸고 있음 -->
@@ -54,8 +54,7 @@
 							<div class="picture">
 								<img src="">
 							</div>
-							<input type="submit" value="등록">
-							<input type="submit" value="수정">
+							<input type="file" name="photo">
 						</div>
 						<!-- 개인정보 내용 감싸고 있음 -->
 						<div class="data">
@@ -66,6 +65,7 @@
 							<span>주소</span><input type="text" name="address"><br>
 							<span>연락처</span><input type="text" name="phone"><br>
 							<span>이메일</span><input type="email" name="email"><br>
+							<span>관리자</span><input type="text" name="admin">
 						</div>
 						<!-- 버튼을 감싸고 있음 -->
 						<div class="btn">

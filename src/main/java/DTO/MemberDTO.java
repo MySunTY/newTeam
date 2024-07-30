@@ -8,6 +8,8 @@ public class MemberDTO {
 	private String address;
 	private String phone;
 	private String email;
+	private String photo;
+	private int admin;
 	public String getM_num() {
 		return m_num;
 	}
@@ -49,6 +51,18 @@ public class MemberDTO {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public String getPhoto() {
+		return photo;
+	}
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+	public int getAdmin() {
+		return admin;
+	}
+	public void setAdmin(int admin) {
+		this.admin = admin;
 	}
 	
 	

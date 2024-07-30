@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>업무일지 페이지</title>
+    
     <style>
         *{
             margin: 0 auto;
@@ -95,6 +96,7 @@
 
 <body>
 	 <div id="wrap">
+	 	
 	    <div id="middle">
 	        <div id="middle-1">
 	            <form id="form1" action="#">
@@ -108,7 +110,7 @@
 	        </div>
 	
 	        <div id="middle-2">
-	            <form id="form2" method="get" action="sheet.do">
+	            <form id="form2" method="post" action="sheetwrite.do">
 	                <div id="content-1">
 	                    <div class="box6"><h1>업무일지</h1></div>
 	                    <div class="box7">작성자</div>

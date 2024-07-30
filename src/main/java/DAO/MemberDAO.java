@@ -115,6 +115,7 @@ public class MemberDAO {
 			mDTO.setAddress(rs.getString("address"));
 			mDTO.setPhone(rs.getString("phone"));
 			mDTO.setEmail(rs.getString("email"));
+			mDTO.setPhoto(rs.getString("photo"));
 			
 			
 		}catch(Exception e) {
@@ -171,7 +172,43 @@ public class MemberDAO {
 		return result;
 	}
 	
-	
+	public void registerMember(MemberDTO mDTO) {
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		String sql = "insert into member(m_num,name,pw,join_date,address,phone,email,admin,photo) values(?,?,?,?,?,?,?,?,?);";
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, mDTO.getM_num());
+			pstmt.setString(2, mDTO.getName());
+			pstmt.setString(3, mDTO.getPw());
+			pstmt.setInt(4, mDTO.getJoin_date());
+			pstmt.setString(5, mDTO.getAddress());
+			pstmt.setString(6, mDTO.getPhone());
+			pstmt.setString(7, mDTO.getEmail());
+			pstmt.setInt(8, mDTO.getAdmin());
+			pstmt.setString(9, mDTO.getPhoto());
+			
+			pstmt.execute();
+			
+		}catch(Exception e) {
+			System.out.println("registerMember(mDTO) ing error "+e);
+		}finally {
+			try {
+				if(pstmt!=null)pstmt.close();
+				if(conn!=null)conn.close();
+				
+			}catch(Exception ex) {
+				System.out.println("registerMember(mDTO) end error"+ex);
+			}
+		}
+		
+		
+		
+	}
 	
 	
 }

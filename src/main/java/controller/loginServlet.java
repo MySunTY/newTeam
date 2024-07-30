@@ -35,7 +35,7 @@ public class loginServlet extends HttpServlet {
 		
 		int result = mDAO.loginCheck(m_num, pw);
 		int adminCheck = mDAO.adminCheck(m_num);
-		request.setAttribute("result", adminCheck);
+		session.setAttribute("result", adminCheck);
 		
 		System.out.println(adminCheck);
 		if(result == 1 ) {

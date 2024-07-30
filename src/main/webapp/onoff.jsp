@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="ko">
     <head>
@@ -17,7 +17,7 @@
                 border: 1px solid black;
                 /* background-color: red; */
                 width: 1240px;
-                /* height: 800px; */
+                height: 800px;
             }
             /* 로고, 로그인 부분 감싸고 있음 */
             .top{
@@ -131,39 +131,16 @@
                 display: block;
                 clear: both;
             }
-
-            /* 달력 */
-            .calendar{
-                margin: 10px auto;
-            }
-            .calendar, .week, .day{
-                border: 1px solid black;
-                clear: both;
-            }
-            .calendar{
-                width: 800px;
-            }
-            .week{
-                display: flex;
-                justify-content: space-between;
-            }
-            .days{
-                display: flex;
-                flex-wrap: wrap;
-            }
-            .days > .day{
-                width: calc(786px/7);
-                height: 100px;
-                display: inline-block;
-            }
-            .month{
-                display: flex;
-                justify-content: space-between;
-            }
-            .month > div{
-                width: 100px;
-                border: 1px solid black;
-            }
+			
+			/* 출퇴근기록 표 */
+			table, th, td{
+				border: 1px solid black;	
+				border-collapse: collapse;		
+			}
+			th, td{
+				width: 150px;
+				text-align: center;
+			}
         </style>
     </head>
     <body>
@@ -178,8 +155,8 @@
 	                    <li><a href="#">공지사항</a></li>
 	                    <li><a href="onoff.jsp">출퇴근관리</a></li>
 	                    <li><a href="vacation.leave">휴가관리</a></li>
-	                    <li><a href="#">업무일지</a></li>
-	                    <li><a href="#">관리자페이지</a></li>
+	                    <li><a href="sheet.do">업무일지</a></li>
+	                    <li><a href="mypage.do">마이페이지</a></li>
 	                </ul>
 	            </div>
             </div>
@@ -194,31 +171,28 @@
                 <div class="onoff_btn">
                     <form method="post" action="on.one">
                     	<input type="hidden" name="m_num" value="${m_num }">
-                        <input type="submit" value="출근" class="on_btn">
+                        <input type="submit" value="출근" class="on_btn" onclick="request_doPost()">
                     </form>
                     <form method="post" action="off.one">
                         <input type="submit" value="퇴근" class="off_btn">
                     </form>
                 </div>
+				
+				<!-- 출퇴근 기록 -->
+				<table>
+					<thead>
+						<tr>
+							<th colspan="4" class="year_month"><!-- 현재 몇 년, 몇 월인지 보여줌 --></th>
+						</tr>
+						<tr>
+							<th>날짜</th><th>출근시간</th><th>퇴근시간</th>
+						</tr>
+					</thead>
+					<tbody class="onoff_data">
+						<!-- 날짜, 출근시간, 퇴근시간 들어갈 곳 -->
+					</tbody>
+				</table>
 
-                <!-- 달력 -->
-                <div class="calendar">
-                    <div class="month">
-                        <div class="before">이전 달</div>
-                        <div class="year_month"><!-- 몇 년, 몇 월인지 표시됨 --></div>
-                        <div class="next">다음 달</div>
-                    </div>
-                    <div class="week">
-                        <div class="day">일</div>
-                        <div class="day">월</div>
-                        <div class="day">화</div>
-                        <div class="day">수</div>
-                        <div class="day">목</div>
-                        <div class="day">금</div>
-                        <div class="day">토</div>
-                    </div>
-                    <div class="days"><!-- 일자 표시됨 --></div>
-                </div>
             </div>
         </div>
         <script>
@@ -236,74 +210,9 @@
             let minutes=newDate.getMinutes().toString().padStart(2, "0");
             let seconds=newDate.getSeconds().toString().padStart(2, "0");    
 
-
-            //달력 만드는 함수
-            function calendar(year, month){
-                //현재 년, 월의 첫번째 요일 확인
-                let currentDate=new Date(year,month,1);
-                console.log("출력되는 연월일, 첫번째 요일: "+currentDate);
-                let firstDay=currentDate.getDay();
-                console.log("첫번째 요일: "+dayList[firstDay]);
-                //1~12월의 마지막 일을 배열로 적음
-                let last=[31,28,31,30,31,30,31,31,30,31,30,31];
-                //윤년 계산 
-                if(year%4==0){
-                    last[1]=29;
-                }else if(year%100==0){
-                    last[1]=28;
-                }else if(year%400==0){
-                    last[1]=29;
-                }
-
-                //월의 마지막 일 구하기
-                let lastDay=last[currentDate.getMonth()];
-                console.log("해당 월의 마지막 일: "+lastDay);
-
-                //달력의 주 수 : (해당월의 시작일 + 마지막 일)/7
-                let weekCount=Math.ceil((firstDay+lastDay)/7);
-                console.log("달력의 주 수: "+weekCount);
-
-                //달력 상단에 년도와 월 표시
-                //이전 월
-                document.getElementsByClassName("before")[0].innerHTML="이전 달";
-                //현재 월
-                document.getElementsByClassName("year_month")[0].innerHTML=year+"년 "+(month+1)+"월";
-                //다음 월
-                document.getElementsByClassName("next")[0].innerHTML="다음 달";
-
-                //달력 날짜 div 만들어서 날짜 넣기
-                //날짜를 감싸고 있는 클래스 이름이 days인 div를 가져온다.
-                let daysDiv=document.getElementsByClassName("days")[0];
-                //첫째 날 전에는 아무것도 안적힌 div 만들어서 부모한테 붙이기
-                for(let i=0; i<firstDay; i++){
-                    let emptyDayDiv=document.createElement("div");
-                    emptyDayDiv.classList.add("day");  //클래스 이름 추가
-                    daysDiv.appendChild(emptyDayDiv);
-                }
-                //날짜 부분 div요소 만들어서 날짜 넣고, 부모한테 붙이기
-                for(let i=1; i<=lastDay; i++){
-                    let dayDiv=document.createElement("div");
-                    dayDiv.className="day "+i;  //class이름 : day, i 두개 만듦
-                    dayDiv.innerHTML=i;
-                    daysDiv.appendChild(dayDiv);
-
-                    //날짜 써있는 div 안에, 출퇴근 시간 들어갈 div 만들어서 부모한테 붙이기
-                    let timeDiv=document.createElement("div");
-                    timeDiv.className="inner_ontime";
-                    timeDiv.innerHTML="00:00";
-                    dayDiv.appendChild(timeDiv);
-                    let timeDiv2=document.createElement("div");
-                    timeDiv2.className="inner_offtime";
-                    timeDiv2.innerHTML="00:00";
-                    dayDiv.appendChild(timeDiv2);
-                }
-            }
-            //페이지 접속하면 현재 달력 보여주기
-            calendar(year, month);
-
-    
+            
             //현재 날짜와 시간 가져와서 표시하기
-            function today(){
+            function currentTime(){
                 //함수 안에서 날짜와 시간을 가져와야 setInterval 사용시 1초에 한번씩 바뀜.
                 //날짜 가져오기
                 let newDate=new Date();
@@ -323,14 +232,82 @@
                 let today=document.getElementById("today");
                 today.innerHTML=year+"년 "+(month+1)+"월 "+date+"일 "+day2+"요일 "+hours+":"+minutes+":"+seconds;
             }
-            today();    //함수 호출
-            setInterval(today, 1000);   //시간 1초에 한번씩 바뀌게 함.
-
-
-            //출근 버튼 누르면 팝업 뜨고 시간 표시됨
-            document.getElementsByClassName("on_btn")[0].addEventListener("click", function(){
-                let nowTime=document.getElementsByClassName("ontime")[0].innerHTML;
-
+            
+            //출퇴근 표에 현재 몇년, 몇월인지 보여줌
+            document.getElementsByClassName("year_month")[0].innerHTML=year+"년 "+(month+1)+"월";
+            
+          	//해당 월의 일수, 날짜 테이블에 추가
+          	function createTable(){
+          		//해당 월의 일수 구하기
+          		let daysInMonth=new Date(year, month+1, 0).getDate();
+                //console.log(daysInMonth);
+                
+          		let tbody=document.querySelector(".onoff_data");
+          		
+          		//일수만큼 테이블 행 추가
+                for(let day=1; day<=daysInMonth; day++){
+                    let row=document.createElement("tr");
+                    
+                    let date_td=document.createElement("td");
+                    date_td.innerHTML=year+"년 "+(month+1)+"월 "+day+"일";
+                    row.appendChild(date_td);
+                    
+                    let ontime_td=document.createElement("td");
+                    ontime_td.innerHTML="00:00:00"
+                    ontime_td.className=day;
+                    row.appendChild(ontime_td);
+                    
+                    let offtime_td=document.createElement("td");
+                    offtime_td.innerHTML="00:00:00"
+                    ontime_td.className=day;
+                    row.appendChild(offtime_td);
+                    
+                    tbody.appendChild(row);
+                }
+          	}
+          	
+          	
+     	
+          	//////////////////
+          	var XHR;
+          	
+          	function createXMLHttpRequest(){
+          		if(window.ActiveXObject){
+          			XHR=new ActiveXObject("Microsoft.XMLHTTP");
+          		}else if(window.XMLHttpRequest){
+          			XHR=new XMLHttpRequest();
+          		}
+          	}
+         	
+          	<%--
+          	function createString(){
+          		var ontime=document.getElemenetsByClassName("").value;
+          		var offtime=document.getElemenetsByClassName("").value;
+          		
+          		var dataString="";
+          		return dataString;
+          	}
+          	--%>
+          	
+          	function request_doPost(){
+          		createXMLHttpRequest();
+          		var url="on.one";
+          		//var dataString=createString();
+          		
+          		XHR.onreadystatechange=handleStateChange;
+          		XHR.open("POST", url, true);
+          		XHR.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+          		XHR.send();	//안에 보낼 데이터 넣어야함
+          	}
+          	function handleStateChange(){
+          		if(XHR.readyState==4){
+          			if(XHR.status==200){
+          				click();
+          			}
+          		}
+          	}
+          	function click(){
+          		let nowTime=document.getElementsByClassName("ontime")[0].innerHTML;
                 //출근 버튼 처음 눌렀으면 클릭시간 적어주고, 또다시 출근 버튼을 누르면 이미 출근했다고 알려주기
                 if(nowTime=="00:00:00"){
                     //시간 가져오기.
@@ -347,60 +324,16 @@
                 }else{
                     alert("이미 출근 하셨습니다.");
                 }
-                //출근 버튼 눌렀을 때, 달력 해당 날짜 안에 출근 시간 기록됨
-                let i=date;
-                console.log(i); 
-                document.getElementsByClassName("inner_ontime")[i-1].innerHTML="출근 "+document.getElementsByClassName("ontime")[0].innerHTML;
-            });
-            
-            //퇴근 버튼 누르면 팝업 뜨고 시간 표시됨
-            document.getElementsByClassName("off_btn")[0].addEventListener("click", function(){
-                let nowTime=document.getElementsByClassName("offtime")[0].innerHTML;
+          	}
 
-                //퇴근 버튼 처음 눌렀으면 클릭시간 적어주고, 또다시 퇴근 버튼을 누르면 이미 출근했다고 알려주기
-                if(nowTime=="00:00:00"){
-                    //시간 가져오기.
-                    //시, 분, 초를 항상 두자리씩 표현하기 위해 문자로 바꾸고 padStart 사용함.
-                    //괄호 안에 있어야 클릭했을 때의 시간 표시됨.
-                    let newDate=new Date();  
-                    let hours=newDate.getHours().toString().padStart(2, "0");
-                    let minutes=newDate.getMinutes().toString().padStart(2, "0");
-                    let seconds=newDate.getSeconds().toString().padStart(2, "0");  
 
-                    document.getElementsByClassName("offtime")[0].innerHTML=hours+":"+minutes+":"+seconds;
-                    alert("퇴근!");
-                }else{
-                    alert("이미 퇴근 하셨습니다.");
-                }
-                //퇴근 버튼 눌렀을 때, 달력 해당 날짜 안에 퇴근 시간 기록됨
-                let i=date;
-                document.getElementsByClassName("inner_offtime")[i-1].innerHTML="퇴근 "+document.getElementsByClassName("offtime")[0].innerHTML;
+          	
+			document.addEventListener('DOMContentLoaded', function(){
+            	currentTime();    
+                setInterval(currentTime, 1000);   //시간 1초에 한번씩 바뀌게 함.
+            	
+                createTable();
             });
-
-            
-            //이전 달 버튼 클릭
-            document.getElementsByClassName("before")[0].addEventListener("click", function(){
-                month=month-1;
-                //console.log("이전 월: "+month);
-                //alert(month+"월 달력으로 이동합니다.");
-                alert("이전 달로 이동합니다.");
-                
-                selectCalendar(year, month);
-            });
-
-            //다음 달 버튼 클릭
-            document.getElementsByClassName("next")[0].addEventListener("click", function(){
-                month=month+1;
-                //console.log("다음 월: "+month);
-                alert("다음 달로 이동합니다.");
-                selectCalendar(year, month);
-            });
-            
-            //기존 달력 내용 지우고, 선택한 달력 보여주기
-            function selectCalendar(year, month){
-                document.getElementsByClassName("days")[0].innerHTML="";    //기존 달력 내용 지우기
-                calendar(year, month);  //선택한 달력 보여주기
-            }
         </script>
     </body>
 </html>

@@ -102,7 +102,7 @@
 							<li class="admin">
 					        	관리자페이지
 					        	<ul>
-					        		<li><a href="#">신입사원 등록</a></li>
+					        		<li><a href="staff.jsp">신입사원 등록</a></li>
 					        	</ul>
 				        	</li>
 						</c:if>

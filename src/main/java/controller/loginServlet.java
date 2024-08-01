@@ -44,13 +44,13 @@ public class loginServlet extends HttpServlet {
 			dis.forward(request,response);
 		}else if(result==0) {
 			request.setAttribute("result",result);
-			RequestDispatcher dis = request.getRequestDispatcher("login.jsp");
+			RequestDispatcher dis = request.getRequestDispatcher("index.jsp");
 			dis.forward(request,response);
 		}else if(result == -1){
 			request.setAttribute("result",result);
 			
 		
-			RequestDispatcher dis = request.getRequestDispatcher("login.jsp");
+			RequestDispatcher dis = request.getRequestDispatcher("index.jsp");
 			dis.forward(request,response);
 			
 		}

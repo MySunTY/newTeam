@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+  <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
@@ -7,80 +7,22 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>마이페이지</title>
-        
+        <link rel="stylesheet" href="css/header.css">   
+           
+       
         <style>
-            *{
-                margin: 0 auto;
-                padding: 0;
-            }
-            /* 전체를 감싸고 있음 */
-            #wrap{
-                border: 1px solid black;
-                /* background-color: red; */
-                width: 1240px;
-                height: 800px;
-            }
-            /* 로고, 로그인 부분 감싸고 있음 */
-            .top{
-                background-color: skyblue;
-                height: 80px;
-            }
-            /* 로고 감싸고 있음 */
-            .top1{
-                width: 150px;
-                height: 100%;
-                float: left;
-                text-align: center;
-                line-height: 80px;
-            }
-            .top2{
-                width: 150px;
-                height: 100%;
-                float: right;
-                text-align: center;
-                line-height: 80px;
-            }
-            .top2 > a{
-                text-decoration: none;
-            }
-            /* 공지사항, 출퇴근관리, 휴가관리, 업무일지 등을 감싸고 있음 */
-            .mainmenu{
-                background-color: beige;
-                height: 80px;
-            }
-            .mainmenu > ul{
-                list-style: none; 
-                width: 800px;
-                text-align: center;
-                line-height: 80px;
-            }
-            .mainmenu > ul > li{
-                display: inline-block;
-                width: 100px;
-                text-align: center;
-            }
-            .mainmenu > ul > li > a{
-                text-decoration: none;
-            }
-            .mainmenu > ul > li:hover{
-                background-color: black;
-                color: white;
-            }
-            /* 헤더 아랫쪽 내용물 감싸고 있음 */
-            .contents{
-                background-color: azure;    /* 영역 확인용 색깔 표시 */
-                padding: 20px;
-                height: 600px;
-            }
-
-
+			 
             /* 마이페이지 내용 */
+            .data{
+           		 width:100%;}
+            
             .change{
-                width: 600px;
-                height: 400px;
-                border: 1px solid black;
+                width: 860px;
+                height: 800px;
+                border: 1px solid #ddd;
                 margin: 0 auto;
                 padding: 20px;
+                border-radius:10px;
             }
             .picture{
                 width: 100px;
@@ -102,28 +44,25 @@
             	width:100px;
             	height:100px;
             }
+            
+            input{
+            width:60%; 
+            height: 40px;
+            margin:10px;}
         </style>
     </head>
     <body>
         <div id="wrap">
-        	
-            <div class="top">
-                <div class="top1">LSP주식회사</div>
-                <div class="top2">${m_num }님 환영합니다</div>
-            </div>
-            <div class="mainmenu">
-                <ul>
-                    <li><a href="#">공지사항</a></li>
-                    <li><a href="onoff.one">출퇴근관리</a></li>
-                    <li><a href="vacation.leave">휴가관리</a></li>
-                    <li><a href="#">업무일지</a></li>
-                    <li><a href="mypage.do">마이페이지</a></li>
-                </ul>
-            </div>
+        	<jsp:include page="header.jsp"></jsp:include>
+            
             <div class="contents">
-                <h2>마이페이지</h2>
+           
+            <div class="title"> <h2>마이페이지</h2> </div>  	
+               
+              
                 <form method="post" action="">
                     <!-- 사진과 이름, 사번 등을 감싸고 있음 -->
+                   
                     <div class="change">
                         <!-- 사진, 변경 버튼 감싸고 있음 -->
                         <div class="picture_btn">
@@ -132,7 +71,7 @@
                                <img src="${mDTO.photo }">
                                
                             </div>
-                            <input type="submit" value="변경">
+                            <input type="submit" value="변경" class="">
                         </div>
                         <!-- 개인정보 내용 감싸고 있음 -->
                         <div class="data">
@@ -155,4 +94,4 @@
             </div>
         </div>
     </body>
-</html>
+</html> 

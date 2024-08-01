@@ -1,6 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+   <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+  
  <!DOCTYPE html>
 
 <html lang="ko">
@@ -9,22 +8,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로그인 페이지</title>
-    <!--   -->
-
+    <link rel="stylesheet" href="css/header.css">
+    
+    
     <style>
-        * {
-            margin: 0 auto;
-            padding: 0;
-        }
+         
 
-        a {
-            text-decoration: none;
+        a {          
             color: #c5c4c4;
             font-size: 0.9em;
         }
-        /* 전체를 감싸고 있음 */
-        body {}
-
+            
         #wrap {
             width: 100%;
             height: 1000px;
@@ -32,47 +26,50 @@
 
         h1 {
             color: #0e2d92;
-            margin-bottom: 20px;
+            font-weight: 400;
+             
         }
 
         .login {
             width: 300px;
-            height: 180px;
-             
+            height: 320px;  
             text-align: center;
             padding: 15px;
+            
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);       
             background-color: #efeff0;
             border-radius: 20px;
-            height: 300px;           
-            padding: 30px;
-
-            /*240726_ley추가 */
-             box-shadow: 3px 7px 25px #cccccc;
+            box-shadow: 2px 1px 10px #c5c5c5;
         }
 
+       
         span {
             display: inline-block;
             width: 80px;
         }
 
-        input[type="submit"] {
-            width: 200px;
-            height: 30px;
-            margin: 20px;
-        }
+ 
 
-        input {
+        .login input {
             /* 테두리 없앰 */
-            border-width: 0;
-            border-bottom: 1px solid #ddd;
+          
             width: 220px;
             height: 40px;
+            border-width: 0;
+            border-bottom: 1px solid #ddd;
             border-radius: 20px;
-            padding-left: 30px;
+            padding-left: 10%; 
+            margin: 15px auto;
+
+
+        }
+
+         input:focus{
+            border-color: #0e2d92;
+            outline: none;
         }
 
         span {
@@ -82,13 +79,10 @@
         #sub {
             background: #0e2d92;
             color: #FFF;
-            width: 250PX;
-            height: 50px;
+            text-align: center;
+            padding-left: 0;  
             border-radius: 23px;
-            margin-top: 30px;
-          
-            /* 추후 수정예정 : 원인 불명 */
-            padding-right: 30px;
+            /* margin-top: 30px; */
 
 
         }
@@ -99,18 +93,15 @@
     <div id="wrap">
 
         <div class="login">
+           
             <form method="post" action="login.do">
+              
                 <h1>로그인</h1>
                
-                <p></p>
-                <span> </span><input type="text" name="m_num" autofocus placeholder="사번 "><br>
-                <span> </span><input type="password" name="pw" placeholder="비밀번호 "> <br>
-
-                <input id="sub" type="submit" value="로그인">
-
-               
-
-
+                 <input type="text" name="m_num" autofocus placeholder="사번"><br>
+                 <input type="password" name="pw" placeholder="비밀번호 "> <br>
+                 <input id="sub" type="submit" value="로그인" >
+                
                 <c:if test="${result==0 }">
                     <script>
                         let text = document.getElementById("sub");

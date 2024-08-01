@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
+  <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
     
 <!DOCTYPE html>
@@ -7,33 +7,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>업무일지 페이지</title>
-    
+    <link rel="stylesheet" href="css/header.css">
     <style>
-        *{
-            margin: 0 auto;
-            padding: 0;
-            box-sizing: border-box;
-            text-decoration: none;
-        }
-        #wrap{
-            border: 1px solid black;
-            width: 1240px;
-            height: 800px;
-        }
-        		    
-        #middle{   
-            width: 1240px;            
-            height: 640px;       
-            background-color:azure; 		        
-            display: flex;
-            flex-direction: row; 
-            text-align: center;    
-        }
+        
         #middle-1{flex: 2; margin-right: 30px; border-radius: 30px; border: 1px solid black; text-align: center;}
         #side{width: 80%; height: 50%; text-align: center;}
         #middle-2{width: 100%; flex: 8; display: flex; flex-direction: column; }
         #content-1{
-            border: 1px solid black;
+             border: 1px solid #ddd; 
             width: 100%;
             flex: 1;          
             display: grid;
@@ -46,7 +27,7 @@
         }
         .box6{grid-area: box6;}
         #content-2{
-            border: 1px solid black;
+             border: 1px solid #ddd; 
             width: 100%;
             flex: 9;           
             display: grid;
@@ -60,7 +41,7 @@
         #content-2>div, #content-1>div{
             width: 100%;
             height: 100%;
-            border: 1px solid black;
+            border: 1px solid #ddd;
             text-align: center;
             line-height: 43px;
         }
@@ -96,21 +77,21 @@
 
 <body>
 	 <div id="wrap">
-	 	
-	    <div id="middle">
+	 <jsp:include page="header.jsp"></jsp:include>
+	    <div class="contents">
+	    <div class="title"> <h2>업무일지</h2> </div>  	
 	        <div id="middle-1">
 	            <form id="form1" action="#">
 	                <div id="side">
-	                    <h2>업무일지 보관함</h2><br>
-	                    <span>작성일자: </span><input type="date" name="getdate" id="getdate"><br>                   
+	                     
+	                    <span>작성일자: </span><input type="date" id="getdate"><br>                   
 	                    <input type="button" value="검색!" onclick="request_doPost()">
-	                    <div id="msg"></div>
 	                </div>
 	            </form>
 	        </div>
 	
 	        <div id="middle-2">
-	            <form id="form2" method="post" action="sheetwrite.do">
+	            <form id="form2" method="get" action="sheet.do">
 	                <div id="content-1">
 	                    <div class="box6"><h1>업무일지</h1></div>
 	                    <div class="box7">작성자</div>
@@ -157,7 +138,7 @@
         	
         }
         function handleStateChange(){
-            				
+            console.log(XHR.readyState);				
             if(XHR.readyState==4){  
                 if(XHR.status==200){                     
                 	parseResult();

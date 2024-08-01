@@ -28,7 +28,8 @@ public class registerServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		ServletContext context = getServletContext();
-		String path = context.getRealPath("/files");
+		String path = context.getRealPath("/img");
+		HttpSession session = request.getSession();
 		System.out.println(path);
 		String encType="utf-8";
 		int sizeLimit = 20*1024*1024;
@@ -51,7 +52,7 @@ public class registerServlet extends HttpServlet {
 		mDTO.setPw(pw);
 		mDTO.setJoin_date(join_date);
 		mDTO.setAddress(address);
-		mDTO.setPhoto("files/"+photo);
+		mDTO.setPhoto("/img/"+photo);
 		mDTO.setPhone(phone);
 		mDTO.setEmail(email);
 		mDTO.setAdmin(admin);

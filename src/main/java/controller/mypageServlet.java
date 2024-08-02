@@ -18,6 +18,7 @@ public class mypageServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
+		response.setContentType("text/html; charset=utf-8");
 		HttpSession session = request.getSession();
 		String m_num = (String)session.getAttribute("m_num");
 		MemberDAO mDAO = MemberDAO.getInstance();

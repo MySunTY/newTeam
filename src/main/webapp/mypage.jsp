@@ -69,6 +69,7 @@
                             <!-- 사진은 관리자가 등록하고, 변경만 직원이 가능 -->
                             <div class="picture">
                                <img src="${mDTO.photo }">
+                              
                                
                             </div>
                             <input type="submit" value="변경" class="">
@@ -80,7 +81,8 @@
                             <span>연락처</span><input type="text" name="phone" value="${mDTO.phone }"><br>
                             <span>이메일</span><input type="email" name="email" value="${mDTO.email }"><br>
                             <span>주소</span><input type="text" name="address" value="${mDTO.address }"><br>
-                            
+                             <input type="text" value="${mDTO.photo }" id="hid">
+                             <img src="${mDTO.getPhoto() }">
                             
                             
                         </div>
@@ -93,5 +95,9 @@
                 </form>
             </div>
         </div>
+        <script>
+        	
+        	
+        </script>
     </body>
 </html> 

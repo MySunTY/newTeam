@@ -42,8 +42,8 @@
 					<li><a href="board.do?currentPage=1&recordsPerPage=5">공지사항</a></li>
 					<li><a href="onoff.one">출퇴근관리</a></li>
 					<li><a href="vacation.leave">휴가관리</a></li>
-					<li><a href="jobsheet.jsp">업무일지</a></li>
-					<li><a href="mypage.jsp">마이페이지</a></li>
+					<li><a href="sheet.do">업무일지</a></li>
+					<li><a href="mypage.do">마이페이지</a></li>
 
 					<!-- 관리자 권한이 있는 자가 로그인 했을 경우 관리자페이지 메뉴 보이기 -->
 

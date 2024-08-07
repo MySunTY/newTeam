@@ -70,7 +70,7 @@ public class MemberDAO {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		
-		String sql = "insert into onoff(m_num, clicktime, clicktype) values(?,now(),?);";
+		String sql = "insert into onoff(m_num, clicktime, clicktype, check_date) values(?,now(),?,now());";
 		
 		try {
 			conn = getConnection();

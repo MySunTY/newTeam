@@ -104,6 +104,7 @@ input[type="submit"] {
 
 	<div id="wrap">
 		<jsp:include page="header.jsp"></jsp:include>
+		<a href="newonoff.jsp">달력보기</a>
 		<div class="contents">
 			<div class="title">
 				<h2>출퇴근 관리</h2>

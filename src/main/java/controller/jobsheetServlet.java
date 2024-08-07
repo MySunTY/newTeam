@@ -26,6 +26,7 @@ public class jobsheetServlet extends HttpServlet {
 	 response.setCharacterEncoding("utf-8");
 	 response.setContentType("sheet/xml");
 	 String getdate=request.getParameter("getdate");  //검색 날짜
+	 System.out.println(getdate);
 	 JobsheetDAO jDAO = new JobsheetDAO();
 	 String msg = jDAO.showText(getdate);
 	 System.out.println(msg);

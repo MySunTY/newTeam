@@ -57,8 +57,8 @@
 }
 
 .on_btn, .off_btn {
-	width: 250px;
-	height: 80px;
+	width: 230px;
+	height: 70px;
 	background-color: #1537a7;
 	color: white;
 	text-align: center;
@@ -79,6 +79,9 @@
 	display: block;
 	clear: both;
 }
+
+table{
+width: 80%;}
 
 /* 출퇴근기록 표 */
 table, th, td {

@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 
 <head>
@@ -46,14 +46,13 @@
 					<li><a href="mypage.do">마이페이지</a></li>
 
 					<!-- 관리자 권한이 있는 자가 로그인 했을 경우 관리자페이지 메뉴 보이기 -->
-
-					<li class="admin"><a href="#">관리자페이지</a>
-					 <c:if
-							test="${result==1}">
+					<c:if test="${admin==1}">
+						<li class="admin"><a href="#">관리자페이지</a>
 							<ul class="submenu">
 								<li><a href="staff.jsp">신입사원 등록</a></li>
 							</ul>
-						</c:if></li>
+						</li>
+					</c:if>
 
 
 					<!-- 하단에 쫓아다니는 바 -->

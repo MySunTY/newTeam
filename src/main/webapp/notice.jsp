@@ -10,33 +10,16 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>공지사항 페이지</title>
-       <link rel="stylesheet" href="css/header.css">
+        <title>공지사항</title>
+        <link rel="stylesheet" href="css/header.css">   
+           
+       
         <style>
-	       #wrap{
-	       		margin:0 auto;            
-	            width: 1240px;
-	            height: 800px;
-	            border: 1px solid black;
-	        }
-	        .contents{
-	        	margin:0 auto;
-	            width: 1240px;
-	            height: 640px;
-	            display: flex;
-	            flex-direction: column;
-	            border: 1px solid black;
-	        }
-	        #t1{
-	            width: 100%;
-	            flex: 3;
-	            border: 1px solid black;
-	        }
-	        #boardwrap{
+			 #boardwrap{
 	            width: 100%;
 	            flex: 7;
 	            text-align: center;
-	            border: 1px solid black;            
+	                   
 	        }
 	        table, tr, th, td{
 	            border: 1px solid black;
@@ -57,16 +40,17 @@
 	    		top: 35px;         	
 	        	margin-right:100px;
 	        }
-        </style>    
+           
+        </style>
     </head>
     <body>
         <div id="wrap">
-        <jsp:include page="header.jsp"></jsp:include>
+        	<jsp:include page="header.jsp"></jsp:include>
             <div class="contents">
-                <div id="t1">
-                    그림이나 공지사항 관련 글
-                </div>
-                <div id="boardwrap">
+            <div class="title"> <h2>공지사항</h2> </div>  	
+            
+            
+             <div id="boardwrap">
                     <table id="table">                      
                         <thead>                          
                             <tr>
@@ -115,9 +99,14 @@
 						<div style="width:100%; height:100px; text-align:right;">
 	                		<button type="button" id="button" value="글쓰기" onclick="location.href='post_new.jsp'">글쓰기</button>
 	                	</div>	                                                  
-	                							                     
-               	</div>
-            </div>
-        </div>
+	                		
+            
+            
+              </div>  
+             </div>   
+                   
+                
+            
+       
     </body>
-</html>
+</html> 

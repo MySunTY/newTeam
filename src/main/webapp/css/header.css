@@ -29,6 +29,7 @@ body {
 	font-weight: 400;
 	font-style: normal;
 	background-color: rgb(202, 202, 202);
+	padding-top: 160px;
 }
 
 #wrap {
@@ -40,16 +41,13 @@ a {
 	font-weight: 500;
 }
 
-body {
-	padding-top: 160px;
-}
-
 #header {
 	width: 100%;
 	position: fixed;
 	top: 0;
 	left: 0;
 	right: 0;
+	z-index: 99;
 }
 
 .top {
@@ -80,11 +78,13 @@ body {
 .top2 {
 	/* width: 150px; */
 	height: 100%;
-	float: right;
 	/*  추가 */
 	margin-right: 23%;
 	font-weight: 300;
 	font-size: 0.8em;
+	position: absolute;
+	top: 0;
+	right:0;
 }
 
 .bar {
@@ -101,7 +101,7 @@ body {
 	font-size: 0.8em;
 	position: absolute;
 	top: 0;
-	right: 380px;
+	right: 360px;
 }
 
 /* 공지사항, 출퇴근관리, 휴가관리, 업무일지 등을 감싸고 있음 */

@@ -12,11 +12,12 @@
 
 /* 사원등록 */
 .change {
-	width: 600px;
-	height: 400px;
-	border: 1px solid black;
+	width: 860px;
+	height: 860px;
+	border: 1px solid #ddd;
 	margin: 0 auto;
 	padding: 20px;
+	border-radius: 10px;
 }
 
 .picture {
@@ -31,11 +32,35 @@ span {
 }
 
 .picture_btn, .data, .btn {
-	width: 500px;
-	margin: 0 auto;
-	/* background-color: red; */
 	text-align: center;
 	margin-top: 20px;
+}
+
+.picture_btn {
+	 
+}
+
+.data input {
+	width: 350px;
+}
+
+.btn input {
+	width: 200px;
+}
+
+input {
+	width: 60%;
+	height: 40px;
+	margin: 10px;
+}
+
+.data span {
+	text-align: justify;
+}
+
+input[type="file"] {
+	 margin-left: 300px;
+	
 }
 </style>
 </head>
@@ -62,14 +87,16 @@ span {
 					</div>
 					<!-- 개인정보 내용 감싸고 있음 -->
 					<div class="data">
-						<span>사번</span><input type="text" name="m_num"><br> <span>이름</span><input
+						<span>사&nbsp;&nbsp;&nbsp;&nbsp;번</span><input type="text"
+							name="m_num"><br> <span>이&nbsp;&nbsp;&nbsp;&nbsp;름</span><input
 							type="text" name="name"><br> <span>비밀번호</span><input
-							type="text" name="pw"><br> <span>입사일</span><input
-							type="text" name="join_date"><br> <span>주소</span><input
-							type="text" name="address"><br> <span>연락처</span><input
-							type="text" name="phone"><br> <span>이메일</span><input
-							type="email" name="email"><br> <span>관리자</span><input
+							type="text" name="pw"><br> <span>입&nbsp;사&nbsp;일</span><input
+							type="text" name="join_date"><br> <span>주&nbsp;&nbsp;&nbsp;&nbsp;소</span><input
+							type="text" name="address"><br> <span>연&nbsp;락&nbsp;처</span><input
+							type="text" name="phone"><br> <span>이&nbsp;메&nbsp;일</span><input
+							type="email" name="email"><br> <span>관&nbsp;리&nbsp;자</span><input
 							type="text" name="admin">
+
 					</div>
 					<!-- 버튼을 감싸고 있음 -->
 					<div class="btn">

@@ -20,6 +20,7 @@
 
 .span {
 	width: 300px;
+	margin-left: 180px;
 }
 
 #middle-2 {
@@ -39,6 +40,7 @@
 	text-align: center;
 	/*border: 1px solid black;*/
 	position: relative;
+	top: 32px;
 }
 
 #form-1-1 {
@@ -55,9 +57,12 @@
 }
 
 button {
+  		
 	width: 80px;
 	height: 60px;
 	border-radius: 15px;
+	border: 1px solid #eee;
+	 
 }
 
 .form-2 {
@@ -86,6 +91,20 @@ input[type=date], input[type=datetime-local] {
 input[type=submit] {
 	width: 100px;
 }
+
+.submitbtn{
+	width: 300px;
+	height: 50px;
+}
+
+#form-1-1 button{
+width: 150px;}
+
+ 
+
+ 
+
+ 
 </style>
 
 </head>
@@ -127,7 +146,7 @@ input[type=submit] {
 							<textarea name="reason" id="text_area" cols="80" rows="20"
 								placeholder="사유를 입력해주세요"></textarea>
 						</div>
-						<input type="submit" value="제출!">
+						<input type="submit" value="제출!" class="submitbtn">
 					</div>
 				</form>
 
@@ -144,7 +163,7 @@ input[type=submit] {
 							<textarea name="reason" id="text_area" cols="80" rows="20"
 								placeholder="사유를 입력해주세요"></textarea>
 						</div>
-						<input type="submit" value="제출!">
+						<input type="submit" value="제출!" class="submitbtn">
 					</div>
 				</form>
 
@@ -158,7 +177,7 @@ input[type=submit] {
 							<textarea name="reason" id="text_area" cols="80" rows="20"
 								placeholder="사유를 입력해주세요"></textarea>
 						</div>
-						<input type="submit" value="제출!">
+						<input type="submit" value="제출!" class="submitbtn">
 					</div>
 				</form>
 
@@ -172,7 +191,7 @@ input[type=submit] {
 							<textarea name="reason" id="text_area" cols="80" rows="20"
 								placeholder="사직사유를 입력해주세요"></textarea>
 						</div>
-						<input type="submit" value="제출!">
+						<input type="submit" value="제출!" class="submitbtn">
 					</div>
 				</form>
 			</div>

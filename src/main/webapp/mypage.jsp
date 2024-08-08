@@ -97,7 +97,7 @@ input {
 			</div>
 
 
-			<form method="post" action="">
+			<form method="post" action="mypage.do" enctype="multipart/form-data">
 				<!-- 사진과 이름, 사번 등을 감싸고 있음 -->
 
 				<div class="change">
@@ -105,17 +105,19 @@ input {
 					<div class="picture_btn">
 						<!-- 사진은 관리자가 등록하고, 변경만 직원이 가능 -->
 						<div class="picture">
-							<img src="${mDTO.photo }">
-
+							<img src=".${mDTO.photo }">
+							<input type="hidden" name="originPhoto" value="${mDTO.photo }">
 						</div>
-						<input type="submit" value="변경" class="changebtn">
+						<input type="file" value="변경" class="changebtn" name="photo">
 					</div>
 
 					<!-- 개인정보 내용 감싸고 있음 -->
 					<div class="data">
 						<span>이&nbsp;&nbsp;&nbsp;&nbsp;름</span><input type="text"
-							value="${mDTO.name }" readonly><br> <span>사&nbsp;&nbsp;&nbsp;&nbsp;번</span><input
-							type="text" value="${m_num }" readonly><br> <span>연&nbsp;락&nbsp;처</span><input
+							value="${mDTO.name }" name="name" readonly><br> <span>사&nbsp;&nbsp;&nbsp;&nbsp;번</span><input
+							type="text" value="${m_num }" name="m_num" readonly><br> 
+							<span>비밀번호</span><input type="text" name="pw">
+							<span>연&nbsp;락&nbsp;처</span><input
 							type="text" name="phone" value="${mDTO.phone }"><br>
 						<span>이&nbsp;메&nbsp;일</span><input type="email" name="email"
 							value="${mDTO.email }"><br> <span>주&nbsp;&nbsp;&nbsp;&nbsp;소</span><input

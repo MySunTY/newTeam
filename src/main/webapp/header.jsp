@@ -26,7 +26,7 @@
 				</div>
 				<div class="top2">${m_num }님환영합니다</div>
 
-				<c:if test="${result==1}">
+				<c:if test="${result==1 || result==2}">
 					<div class="logout">
 						<a href="logout.jsp">로그아웃</a>
 					</div>
@@ -46,7 +46,7 @@
 					<li><a href="mypage.do">마이페이지</a></li>
 
 					<!-- 관리자 권한이 있는 자가 로그인 했을 경우 관리자페이지 메뉴 보이기 -->
-					<c:if test="${admin==1}">
+					<c:if test="${result==1}">
 						<li class="admin"><a href="#">관리자페이지</a>
 							<ul class="submenu">
 								<li><a href="staff.jsp">신입사원 등록</a></li>

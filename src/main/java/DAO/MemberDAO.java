@@ -208,6 +208,48 @@ public class MemberDAO {
 		
 		
 		
+	}//register
+	
+	public int updateMember(MemberDTO mDTO) {
+		int result = 0;  //업데이트 실패하면 0, 성공하면 1
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		
+		String sql = "update member set pw=? , address=? , email=?, photo=?";
+		sql+= ", phone=? where m_num=? ";
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, mDTO.getPw());
+			pstmt.setString(2, mDTO.getAddress());
+			pstmt.setString(3, mDTO.getEmail());
+			pstmt.setString(4, mDTO.getPhoto());
+			pstmt.setString(5, mDTO.getPhone());
+			pstmt.setString(6, mDTO.getM_num());
+			
+			result = pstmt.executeUpdate();
+			
+			
+		}catch(Exception e) {
+			System.out.println("updateMember ing error"+e);
+		}finally {
+			try {
+				if(pstmt!=null)pstmt.close();
+				if(conn!=null)conn.close();
+				
+			}catch(Exception ex) {
+				System.out.println("updateMember end error "+ex);
+			}
+		}
+		
+		
+		
+		
+		
+		
+		return result;
 	}
 	
 	

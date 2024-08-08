@@ -80,7 +80,9 @@
                        <%--페이징처리--%> 
                        <div style="width:100%; text-aling:center;">                       	
 				            <c:if test="${currentPage !=1 }">
-								<a href="board.do?currentPage=${currentPage-1 }&recordsPerPage=${recordsPerPage }">[이전페이지]</a>
+								<a href="board.do?currentPage=${currentPage-1 }&recordsPerPage=${recordsPerPage }">
+									<img src="image/icon.jpg" width="50px";>  
+								</a>
 							</c:if>						
 							<c:forEach begin="1" end="${npage }" var="i">
 								<c:choose>
@@ -93,7 +95,8 @@
 								</c:choose>			
 							</c:forEach>						
 							<c:if test="${currentPage !=npage }">
-								<a href="board.do?currentPage=${currentPage+1 }&recordsPerPage=${recordsPerPage }">[다음페이지]</a>
+								<a href="board.do?currentPage=${currentPage+1 }&recordsPerPage=${recordsPerPage }">
+									<img src="image/icon1.jpg" width="50px";></a>
 							</c:if>
 						 </div>
 						<div style="width:100%; height:100px; text-align:right;">

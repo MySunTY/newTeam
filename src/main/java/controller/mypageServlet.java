@@ -31,7 +31,43 @@ public class mypageServlet extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
+		ServletContext context = getServletContext();
+		String path = context.getRealPath("/img");
+		int maxSize = 10*1024*1024;
+		String encType = "utf-8";
 		
+		MultipartRequest multi = new MultipartRequest(request , path, maxSize, encType,new DefaultFileRenamePolicy());
+		MemberDTO mDTO = new MemberDTO();
+		MemberDAO mDAO = MemberDAO.getInstance();
+		
+		String m_num = multi.getParameter("m_num");
+		String pw = multi.getParameter("pw");
+		String phone = multi.getParameter("phone");
+		String email = multi.getParameter("email");
+		String address = multi.getParameter("address");
+		String photo = multi.getFilesystemName("photo");
+		
+		String originPhoto = multi.getParameter("originPhoto");
+		if(photo == null) {
+			photo = originPhoto;
+		}else {
+			photo = "/img/"+photo;
+		}
+		
+		System.out.println(photo);
+		
+		mDTO.setM_num(m_num);
+		mDTO.setPw(pw);
+		mDTO.setPhone(phone);
+		mDTO.setEmail(email);
+		mDTO.setPhoto(photo);
+		mDTO.setAddress(address);
+		
+		int updateResult = mDAO.updateMember(mDTO);
+		System.out.println(updateResult);
+		request.getRequestDispatcher("main.jsp").forward(request, response);
+				
 	}
 
 }

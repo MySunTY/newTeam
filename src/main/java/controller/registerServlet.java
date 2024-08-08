@@ -54,7 +54,7 @@ public class registerServlet extends HttpServlet {
 		mDTO.setPw(pw);
 		mDTO.setJoin_date(join_date);
 		mDTO.setAddress(address);
-		mDTO.setPhoto("img/"+photo);
+		mDTO.setPhoto("/img/"+photo);
 		mDTO.setPhone(phone);
 		mDTO.setEmail(email);
 		mDTO.setAdmin(admin);

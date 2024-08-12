@@ -23,7 +23,8 @@
 .picture {
 	width: 100px;
 	height: 120px;
-	border: 1px solid black;
+    background-color: #ddd; 
+	border:1px solid #ddd;
 }
 
 span {
@@ -44,10 +45,17 @@ span {
 	width: 350px;
 }
 
-.btn input {
-	width: 200px;
-}
-
+ 
+.btn input{
+	width: 120px;
+	border:none;
+	border-radius: 10px;}
+	
+.btn input:nth-child(2n){
+		background-color:  #1537a7;
+		color:#fff;}	
+		
+ 
 input {
 	width: 60%;
 	height: 40px;
@@ -62,6 +70,9 @@ input[type="file"] {
 	 margin-left: 300px;
 	
 }
+
+
+
 </style>
 </head>
 <body>
@@ -100,7 +111,8 @@ input[type="file"] {
 					</div>
 					<!-- 버튼을 감싸고 있음 -->
 					<div class="btn">
-						<input type="reset" value="초기화"> <input type="submit"
+						<input type="reset" value="초기화"> 
+						<input type="submit"
 							value="등록">
 					</div>
 				</div>

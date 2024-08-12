@@ -93,9 +93,17 @@ input[type=submit] {
 }
 
 .submitbtn{
-	width: 300px;
-	height: 50px;
+	width: 120px;
+	height:40px;
+	border:none;
+	border-radius: 10px;
+	background-color:  #1537a7;
+	color:#fff;
 }
+
+
+.btn input:nth-child(2n){
+		}	
 
 #form-1-1 button{
 width: 150px;}

@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
 <%@ page import="java.sql.*" %>
@@ -18,18 +18,50 @@
 				
 			}
 			table{
+				width: 85%; 			
 				border-collapse : collapse;
 			}
-			th , td{
-				border: 1px solid #cccccc;
-				width: 30px;
-				height: 25px;
+			th:nth-child(1){
+			 				color: red;}
+			
+			tr>td:nth-child(1){
+			 				color: red;} 	
+			 							
+			
+			th:nth-child(7n){
+			             color:  blue;
+			     } 	
+			     
+			tr>td:nth-child(7n){
+			             color:  blue;
+			     } 		     			 		 
+			 
+			 
+			th, td{
+				border: 1px solid #ddd;
+				border-left: 0;     
+			    border-right: 0;
+			    width: 30px;
+				height: 90px;
 				text-align : center;
 			}
 			caption{
-				margin-bottom : 20px;
+				 
 				font-size : 25px;
+				margin-bottom:30px;
+				
 			}
+			
+			caption a{
+						color:#aaa;}
+						
+			caption a:nth-child(2n){
+						color:#000;}
+			
+			th{border-bottom: none;}
+			
+			.month
+			
 		</style>
 	</head>
 	<body>
@@ -134,9 +166,13 @@
 				<table>
 				
 				
-					<a href="calendar.jsp?y=<%=y %>&m=<%=m-1 %>">지난달</a>
-					<caption><%=y %>년 <%=m+1 %>월</caption>
-					<a href="calendar.jsp?y=<%=y %>&m=<%=m+1 %>">다음달</a>
+					
+					
+					<caption>
+						<a href="calendar.jsp?y=<%=y %>&m=<%=m-1 %>" class="month">◀&nbsp;</a>
+						<%=y %>년 <%=m+1 %>월
+						<a href="calendar.jsp?y=<%=y %>&m=<%=m+1 %>" class="month">&nbsp;▶</a>
+					</caption>
 					
 					<tr>
 						<th>일</th>

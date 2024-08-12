@@ -101,35 +101,6 @@
 		input[type="submit"] {
 			border: none;
 		}
-		
-		/* */
-		.ontime1, .offtime1{
-			margin: 0 auto;
-		    width: 200px;
-		    height: 70px;
-		    background-color: lightgray;
-		    text-align: center;
-		    line-height: 70px;
-		    float: left;
-		    margin: 5px;
-		    border-radius: 10px;
-		}
-		#onoff_btn{
-		    margin: 0 auto;
-		    width: 100%px;
-		    height: 70px;   
-		}
-		#on_btn, #off_btn{
-			margin: 0 auto;
-		    width: 120px;
-		    height: 50px;
-		    background-color: blue;
-		    color: white;
-		    text-align: center;
-		    line-height: 50px;
-		    border-radius: 10px;
-		    margin: 10px;
-		}
 	</style>
 	</head>
 	<body>
@@ -145,10 +116,14 @@
 				<div id="today">
 					<!-- 현재 날짜와 시간 표시될 곳 -->
 				</div>
+				
+				<!-- 출퇴근 버튼 누르면 시간 표시됨 -->
+				<!-- 
 				<div class="time">
 					<div class="ontime">00:00:00</div>
 					<div class="offtime">00:00:00</div>
 				</div>
+				 -->
 				<div class="onoff_btn">
 					<form method="post" action="on.one">
 						<input type="hidden" name="m_num" value="${m_num }"> 
@@ -159,18 +134,7 @@
 					</form>
 				</div>
 				
-				<!-- ////////////////////////////////// -->
-				<!-- <div id="time">
-	            	<div class="ontime1">출근시간</div>
-	                <div class="ontime">${ontime}</div>
-	                <div class="offtime1">퇴근시간</div>
-	                <div class="offtime">${offtime}</div>
-	            </div>
-	             -->
-	            <div id="onoff_btn">
-		            <input type="button" value="출근" id="on_btn">
-		            <input type="button" value="퇴근" id="off_btn">
-				</div>
+				
 
 			</div>
 		</div>
@@ -213,45 +177,29 @@
 						+ day2 + "요일 " + hours + ":" + minutes + ":" + seconds;
 			}
 	
-			////////////////////////////
-			//버튼 클릭시 출근시간 입력
-			document.querySelector("#on_btn").addEventListener('click', () => {	       
-			  	let newDate=new Date();
+			
+			
+			//출근버튼 누르면 alert
+			document.getElementsByClassName("on_btn")[0].addEventListener("click", function(){
+				let newDate=new Date();
 		        let hours=newDate.getHours().toString().padStart(2, "0");
 		        let minutes=newDate.getMinutes().toString().padStart(2, "0");
 		        let seconds=newDate.getSeconds().toString().padStart(2, "0");
 		        let time=hours+":"+minutes+":"+seconds;
-		        document.querySelector(".ontime").innerText=time;	    
-	        }, {once:true});
-			//버튼 클릭시 출근시간 입력(온클릭으로 반영)
-			//function on(){
-				//let newDate=new Date();
-		        //let hours=newDate.getHours().toString().padStart(2, "0");
-		        //let minutes=newDate.getMinutes().toString().padStart(2, "0");
-		        //let seconds=newDate.getSeconds().toString().padStart(2, "0");
-		        //let time=hours+":"+minutes+":"+seconds;
 		        //document.querySelector(".ontime").innerText=time;
-			//}
-	        
-			
-	      	//버튼 클릭시 퇴근시간 입력
-	        document.querySelector("#off_btn").addEventListener('click', () => {        	 
-		        let newDate=new Date();
+		        alert(time+" 출근!");
+			});
+			//퇴근버튼 누르면 alert
+			document.getElementsByClassName("off_btn")[0].addEventListener("click", function(){
+				let newDate=new Date();
 		        let hours=newDate.getHours().toString().padStart(2, "0");
 		        let minutes=newDate.getMinutes().toString().padStart(2, "0");
 		        let seconds=newDate.getSeconds().toString().padStart(2, "0");
-		        let time=hours+":"+minutes+":"+seconds; 
-		        document.querySelector(".offtime").innerText=time;
-		    }, {once:true});
-	      	//버튼 클릭시 퇴근시간 입력(온클릭으로 반영)
-			//function off(){
-				//let newDate=new Date();
-		        //let hours=newDate.getHours().toString().padStart(2, "0");
-		        //let minutes=newDate.getMinutes().toString().padStart(2, "0");
-		        //let seconds=newDate.getSeconds().toString().padStart(2, "0");
-		        //let time=hours+":"+minutes+":"+seconds; 
+		        let time=hours+":"+minutes+":"+seconds;
 		        //document.querySelector(".offtime").innerText=time;
-			//}
+		        alert(time+" 퇴근!");
+			});
+			
 			
 	
 	

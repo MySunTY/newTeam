@@ -29,11 +29,13 @@ public class loginServlet extends HttpServlet {
 		String m_num = request.getParameter("m_num");
 		String pw = request.getParameter("pw");
 		HttpSession session = request.getSession();
+		PrintWriter out = response.getWriter();
 		
 		
 		
 		
 		int result = mDAO.loginCheck(m_num, pw);
+		System.out.println(result);
 		int adminCheck = mDAO.adminCheck(m_num);
 		session.setAttribute("result", adminCheck);
 		
@@ -44,14 +46,17 @@ public class loginServlet extends HttpServlet {
 			dis.forward(request,response);
 		}else if(result==0) {
 			request.setAttribute("result",result);
+			
 			RequestDispatcher dis = request.getRequestDispatcher("index.jsp");
 			dis.forward(request,response);
+		
 		}else if(result == -1){
 			request.setAttribute("result",result);
 			
 		
 			RequestDispatcher dis = request.getRequestDispatcher("index.jsp");
 			dis.forward(request,response);
+			
 			
 		}
 		

@@ -39,9 +39,11 @@ public class MemberDAO {
 			rs = pstmt.executeQuery();
 			rs.next();
 			if(pw.equals(rs.getString("pw"))){
-				return 1 ; //로그인 성공
+				result=  1 ; //로그인 성공
 			}else if(pw != rs.getString("pw")) {
-				return 0 ; //비밀번호 틀림
+				result =  0 ; //비밀번호 틀림
+			}else {
+				result = -1; //회원가입되어있지 않음
 			}
 			
 			

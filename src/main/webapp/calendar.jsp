@@ -231,11 +231,20 @@
 								<% for(int k = 0 ; k<listSize; k++){
 									if(today.equals(aTime[k])){
 										if(aType[k]==1){
-											out.print(realTime[k]);
-											out.print("출근");
+											out.print("출근 ");
+											for(int o = 11 ; o<19; o++){
+												out.print(realTime[k].charAt(o));	
+											}
+											out.print("<br>");
+											
+											
+											
 										}else{
-											out.print(realTime[k]);
-											out.print("퇴근");
+											out.print("퇴근 ");
+											for(int o = 11 ; o<19; o++){
+												out.print(realTime[k].charAt(o));	
+											}
+											out.print("<br>");
 										}
 									}
 								}

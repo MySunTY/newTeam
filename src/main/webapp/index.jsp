@@ -1,5 +1,5 @@
    <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-  
+  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
  <!DOCTYPE html>
 
 <html lang="ko">
@@ -107,12 +107,12 @@
                         let text = document.getElementById("sub");
                         text.style.fontSize = '1.2em';
 
-                        // alert("비밀번호가 틀렸습니다");
+                        alert("비밀번호가 틀렸습니다");
                     </script>
                 </c:if>
                 <c:if test="${result==-1 }">
                     <script>
-                        // alert("회원가입이 되어있지 않습니다");
+                        alert("회원가입이 되어있지 않습니다");
 
 
                     </script>

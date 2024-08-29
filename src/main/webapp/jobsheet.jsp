@@ -75,6 +75,7 @@
 		height: 100%;
 		resize: none;
 		border: 1px solid #ddd;
+		font-size :25px;
 	}
 	
 	#form1 {

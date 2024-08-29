@@ -179,7 +179,7 @@ public class MemberDAO {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		
-		String sql = "insert into member(m_num,name,pw,join_date,address,phone,email,admin,photo) values(?,?,?,?,?,?,?,?,?);";
+		String sql = "insert into member(m_num,name,pw,join_date,address,phone,email,admin,photo) values(?,?,?,?,?,?,?,?,?,?);";
 		
 		try {
 			conn = getConnection();
@@ -193,6 +193,7 @@ public class MemberDAO {
 			pstmt.setString(7, mDTO.getEmail());
 			pstmt.setInt(8, mDTO.getAdmin());
 			pstmt.setString(9, mDTO.getPhoto());
+			pstmt.setInt(10, mDTO.getAnnual_number());
 			
 			pstmt.execute();
 			

@@ -11,14 +11,11 @@ import DAO.VacationDAO;
 @WebServlet("*.leave")
 public class leaveServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("leave.jsp").forward(request,response);
 		
-		
 	}
-
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
@@ -37,8 +34,6 @@ public class leaveServlet extends HttpServlet {
 		System.out.println(leave_start);
 		System.out.println(leave_end);
 		System.out.println(reason);
-		
-		
 		
 		vDTO.setM_num(m_num);
 		vDTO.setLeavetype(leavetype);
@@ -62,9 +57,14 @@ public class leaveServlet extends HttpServlet {
 			
 		}*/
 		
+		int a=vDAO.vacation_check(m_num); //연차 사용 갯수
+		int b=vDAO.bancha_check(m_num); //반차 사용 갯수
+		int c=vDAO.annaul_number_check(m_num); //전체 연가 갯수
+		double d=c-(a+(b*0.5));
+		String d_d = Double.toString(d);
+		session.setAttribute("e", d_d);
 		
-		
-		
+		request.getRequestDispatcher("leave.jsp").forward(request,response);
 		
 	}
 

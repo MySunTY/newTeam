@@ -50,6 +50,7 @@
 						<li class="admin"><a href="#">관리자페이지</a>
 							<ul class="submenu">
 								<li><a href="staff.jsp">신입사원 등록</a></li>
+								<li><a href="all.jsp">전체사원 조회</a></li>
 							</ul>
 						</li>
 					</c:if>

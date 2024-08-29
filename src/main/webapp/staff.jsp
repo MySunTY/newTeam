@@ -107,6 +107,7 @@ input[type="file"] {
 							type="text" name="phone"><br> <span>이&nbsp;메&nbsp;일</span><input
 							type="email" name="email"><br> <span>관&nbsp;리&nbsp;자</span><input
 							type="text" name="admin">
+							<span>연&nbsp;&nbsp;&nbsp;&nbsp;차</span><input type="text" name="annual_number">
 
 					</div>
 					<!-- 버튼을 감싸고 있음 -->

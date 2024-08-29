@@ -7,9 +7,16 @@ public class MemberDTO {
 	private int join_date;
 	private String address;
 	private String phone;
+	public int getAnnual_number() {
+		return annual_number;
+	}
+	public void setAnnual_number(int annual_number) {
+		this.annual_number = annual_number;
+	}
 	private String email;
 	private String photo;
 	private int admin;
+	private int annual_number;
 	public String getM_num() {
 		return m_num;
 	}

@@ -47,6 +47,7 @@ public class registerServlet extends HttpServlet {
 		String email = multi.getParameter("email");
 		String photo = multi.getFilesystemName("photo");
 		int admin = Integer.parseInt(multi.getParameter("admin"));
+		int annual_number =Integer.parseInt(multi.getParameter("annual_number"));
 		
 		MemberDTO mDTO = new MemberDTO();
 		mDTO.setM_num(m_num);
@@ -58,6 +59,7 @@ public class registerServlet extends HttpServlet {
 		mDTO.setPhone(phone);
 		mDTO.setEmail(email);
 		mDTO.setAdmin(admin);
+		mDTO.setAnnual_number(annual_number);
 		
 		MemberDAO mDAO = MemberDAO.getInstance();
 		mDAO.registerMember(mDTO);

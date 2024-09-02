@@ -13,7 +13,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>공지사항</title>
 	<link rel="stylesheet" href="css/header.css">
-
+	<link rel="stylesheet" href="css/footer.css">
 
 	<style>
 		#boardwrap {
@@ -167,7 +167,7 @@
 
 
 
-
+<jsp:include page="footer.jsp"></jsp:include>
 </body>
 
 </html>

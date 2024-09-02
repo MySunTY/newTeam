@@ -13,6 +13,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>출퇴근관리</title>
 <link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" href="css/footer.css">
 <style>
 
 /* 오늘 날짜 표시 */
@@ -479,6 +480,6 @@ td .numbox {
 	<!-- wrap end -->
 
 
-
+<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

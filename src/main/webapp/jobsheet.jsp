@@ -9,6 +9,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>업무일지 페이지</title>
 	<link rel="stylesheet" href="css/header.css">
+	<link rel="stylesheet" href="css/footer.css">
 	<style>
 	#middle-1 {
 		flex: 2;
@@ -212,5 +213,6 @@
 	
 			}
 		</script>
+		<jsp:include page="footer.jsp"></jsp:include>
 	</body>
 	</html>

@@ -8,6 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>사원 등록</title>
 <link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" href="css/footer.css">
 <style>
 
 /* 사원등록 */
@@ -27,7 +28,7 @@
 	border:1px solid #ddd;
 }
 
-span {
+.data span {
 	display: inline-block;
 	width: 70px;
 }
@@ -120,5 +121,6 @@ input[type="file"] {
 			</form>
 		</div>
 	</div>
+	<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

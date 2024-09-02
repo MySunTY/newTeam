@@ -6,6 +6,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.ckeditor.com/ckeditor5/38.1.1/classic/ckeditor.js"></script>
         <title>게시판 글쓰기 페이지</title>
         <link rel="stylesheet" href="css/header.css">
         <style>
@@ -61,7 +62,7 @@
                             		<input type="hidden" name="date">
                             	</td>
                             </tr>
-                            <tr class="area3"><td><textarea name="content" placeholder="글 내용을 입력하세요"></textarea></td></tr>                      
+                            <tr class="area3"><td><textarea id="editor" name="content" placeholder="글 내용을 입력하세요"></textarea></td></tr>                      
                             <tr>
                                 <td>
                                     <button type="submit">저장하기</button>
@@ -74,5 +75,12 @@
                 </form>
             </div>
         </div>
+        <script>
+	        ClassicEditor
+	        .create( document.querySelector( '#editor' ) )
+	        .catch( error => {
+	            console.error( error );
+	        } );
+        </script>
     </body>
 </html>

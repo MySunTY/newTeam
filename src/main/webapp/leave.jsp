@@ -10,6 +10,15 @@
 <head>
 <meta charset="utf-8">
 <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      initialView: 'dayGridMonth'
+    });
+    calendar.render();
+  });
+</script>
 <title>휴가 페이지</title>
 <link rel="stylesheet" href="css/header.css">
 <style>
@@ -39,6 +48,11 @@ text-align: center;
 align-items: center;
 border: 1px solid black;
 }
+#middle-3{
+width: 80%;
+height: 800px;
+margin-top: 10px;
+ }
 
 #form-1 {
 width: 20%;
@@ -188,6 +202,7 @@ String d_d = Double.toString(d);
                     
                 </div>
             </div>
+            
 
             <!--타입:1, 연차 -->
             
@@ -255,7 +270,7 @@ String d_d = Double.toString(d);
                            
             </form>
         </div>
-        <div id="calendar"></div>
+        
     </div>
 </div>
 
@@ -278,13 +293,7 @@ String d_d = Double.toString(d);
             btnDivs[this.no].style.display = 'block';
         });
     }
-    document.addEventListener('DOMContentLoaded', function() {
-        var calendarEl = document.getElementById('calendar');
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-          initialView: 'dayGridMonth'
-        });
-        calendar.render();
-      });
+    
     
     
 </script>

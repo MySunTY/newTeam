@@ -16,73 +16,77 @@
 	<link rel="stylesheet" href="css/footer.css">
 
 	<style>
-		#boardwrap {
-			width: 100%;
-			flex: 7;
-			text-align: center;
+      #boardwrap {
+         width: 100%;
+         flex: 7;
+         text-align: center;
 
-		}
+      }
 
-		table,
-		tr,
-		th,
-		td {
-			border: 1px solid #ddd;
-			border-collapse: collapse;
-			padding: 10px;
-		}
+      table,
+      tr,
+      th,
+      td {
+         border: 1px solid #ddd;
+         border-collapse: collapse;
+         padding: 10px;
+      }
 
-		#table {
-			width: 85%;
-			table-layout: fixed;
-			margin-top: 50px;
-		
-			 
-		}
+      #table {
+         width: 90%;
+         table-layout: fixed;
+         margin-top: 50px;
+         font-size: 0.9em;
+         
+      
+          
+      }
 
-		 th, td{
-			width: 17%; 
-		}
+ 
 
-
-
-		#title {
-			width: 60%; 
-			table-layout: fixed;
-		}
-
-		#button {
-			width: 100px;
-			height: 30px;
-			position: relative;
-			top: 35px;
-			margin-right: 100px;
-			background-color: #0e2d92;
-			color: #fff;
-		}
-
-		#button:hover {
-			background-color: #1a39a0;
-		}
+       th, td{
+         width: 19%; 
+      }
 
 
-		.btnbox {
-			margin-top: 30px;
-			width: 25%;
 
-			display: flex;
-			justify-content: center;
-			align-items: center;
+      #title {
+         width: 55%; 
+         table-layout: fixed;
+      }
 
-		}
+      #button {
+         width: 100px;
+         height: 30px;
+         position: relative;
+         top: 35px;
+         margin-right: 100px;
+         background-color: #0e2d92;
+         color: #fff;
+      }
+
+      #button:hover {
+         background-color: #1a39a0;
+      }
 
 
-		.leftbtn,
-		.rightbtn {
-			margin-top: 10PX;
-			width: 50px;
-		}
-	</style>
+      .btnbox {
+         margin-top: 30px;
+         width: 25%;
+
+         display: flex;
+         justify-content: center;
+         align-items: center;
+
+      }
+
+
+      .leftbtn,
+      .rightbtn {
+         margin-top: 10PX;
+         width: 50px;
+      }
+   </style>
 </head>
 
 <body>

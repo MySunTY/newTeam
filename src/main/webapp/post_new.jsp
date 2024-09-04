@@ -10,21 +10,7 @@
         <title>게시판 글쓰기 페이지</title>
         <link rel="stylesheet" href="css/header.css">
         <style>
-        #wrap{
-        	margin: 0 auto;            
-            width: 1240px;
-            height: 800px;
-            border: 1px solid black;           
-        }
-        .contents{
-        	margin: 0 auto;
-            width: 1240px;
-            height: 640px;
-            display: flex;
-            flex-direction: column;
-            border: 1px solid black;
-            text-align: center;
-        }
+        
        	form{
 			width:100%;
 			height:100%;			

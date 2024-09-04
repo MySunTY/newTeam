@@ -129,7 +129,7 @@ input {
 						
 						</div>
 						
-						<input type="submit" value="변경" class="changebtn">
+						<input type="file" value="변경" class="changebtn">
 					</div>
 
 					<!-- 개인정보 내용 감싸고 있음 -->

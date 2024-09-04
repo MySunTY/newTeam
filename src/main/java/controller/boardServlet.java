@@ -24,9 +24,11 @@ public class boardServlet extends HttpServlet {
 		int recordsPerPage=Integer.parseInt(request.getParameter("recordsPerPage"));				
 		BoardDAO dao=BoardDAO.getInstance();		
 		List<BoardDTO> list=dao.findList(currentPage, recordsPerPage);		
+		List<BoardDTO> adminList = dao.adminList();
 		request.setAttribute("data", list);
 		request.setAttribute("currentPage", currentPage);
 		request.setAttribute("recordsPerPage", recordsPerPage);		
+		request.setAttribute("adminList", adminList);
 		int count=dao.getCount();  
 		int npage=count/recordsPerPage;  
 		if(count%recordsPerPage>0) {   

@@ -54,7 +54,7 @@
                 
        	<%
 		try{
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 			String db_address="jdbc:mysql://localhost:3306/team";
 			String db_username="root";
 			String db_pwd="12345678";

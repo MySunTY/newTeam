@@ -14,16 +14,21 @@
 	<body>
 		<%
 		try{
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 			String db_address="jdbc:mysql://localhost:3306/team";
 			String db_username="root";
 			String db_pwd="12345678";
 			Connection connection=DriverManager.getConnection(db_address, db_username, db_pwd);
 			request.setCharacterEncoding("utf-8");
-			String num=request.getParameter("num");
-			String insertQuery="delete from board where num="+num;
-			PreparedStatement psmt=connection.prepareStatement(insertQuery);
-			psmt.executeUpdate();
+			String[] num=request.getParameterValues("deleteBoard");
+			
+			for(int i = 0 ; i<num.length; i++){
+				String insertQuery="delete from board where num=?;";
+				PreparedStatement psmt=connection.prepareStatement(insertQuery);
+				psmt.setString(1, num[i]);
+				psmt.executeUpdate();	
+			}
+			
 			response.sendRedirect("board.do?currentPage=1&recordsPerPage=5");
 		}catch(Exception ex){
 			out.println("오류 발생: "+ex.getMessage());

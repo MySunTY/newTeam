@@ -99,6 +99,7 @@
 
 
 			<div id="boardwrap">
+				<form method="post" action="post_delete.jsp">
 				<table id="table">
 					<thead>
 						<tr>
@@ -106,10 +107,22 @@
 							<th id="title">제목</th>
 							<th>작성자</th>
 							<th>작성날짜</th>
-							<th>관리</th>
+							<th>수정</th>
+							<th>삭제</th>
 						</tr>
 					</thead>
 					<tbody>
+						<c:forEach var="i" items="${adminList }">
+							<tr>
+								<th>${i.num }</th>
+								<th>${i.title }</th>
+								<th>${i.writer }</th>
+								<th>${i.reg_date }</th>
+								<th>관리자전용</th>
+								<th>관리자전용</th>
+								
+							</tr>
+						</c:forEach>
 						<c:forEach var="data" items="${data}">
 							<tr>
 								<td>${data.num}</td>
@@ -119,8 +132,12 @@
 								<td>
 									<button type="button" value="수정"
 										onclick="location.href='post_modify.jsp?num=${data.num}'">수정</button>
-									<button type="button" value="삭제"
+								</td>
+								<td>		
+									<input type="checkbox" name="deleteBoard" value="${data.num }">
+									<!-- <button type="button" value="삭제"
 										onclick="location.href='post_delete.jsp?num=${data.num}'">삭제</button>
+									 -->
 								</td>
 							</tr>
 						</c:forEach>
@@ -128,7 +145,7 @@
 					</tbody>
 				</table>
 				<!-- <%--페이징처리--%>  -->
-
+				
 
 				<div class="btnbox">
 
@@ -162,9 +179,10 @@
 
 				<div style="width:100%; height:100px; text-align:right;">
 					<button type="button" id="button" value="글쓰기" onclick="location.href='post_new.jsp'">글쓰기</button>
+					<button type="submit" id="button" value="삭제">삭제</button>
 				</div>
-
-
+				
+				</form>
 
 			</div>
 		</div>

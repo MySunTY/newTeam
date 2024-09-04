@@ -161,4 +161,46 @@ public class BoardDAO {
 		return result;
 	}
 	
+	public List<BoardDTO> adminList() {
+		List<BoardDTO> list = new ArrayList<BoardDTO>();
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select * from board where writer='admin';";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				BoardDTO bDTO = new BoardDTO();
+				bDTO.setNum(rs.getInt("num"));
+				bDTO.setTitle(rs.getString("title"));
+				bDTO.setContent(rs.getString("content"));
+				bDTO.setWriter(rs.getString("writer"));
+				bDTO.setReg_date(rs.getString("reg_date"));
+				list.add(bDTO);
+			}
+			
+		}catch(Exception e) {
+			System.out.println("adminList ing error"+e);
+		}finally {
+			try {
+				if(rs!=null)rs.close();
+				if(pstmt!=null)pstmt.close();
+				if(conn!=null)conn.close();
+				
+			}catch(Exception ex) {
+				System.out.println("adminList end error"+ex);
+			}
+		}
+		
+		
+		
+		
+		return list;
+	}
+	
 }//메인끝

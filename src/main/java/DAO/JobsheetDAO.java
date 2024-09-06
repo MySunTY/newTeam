@@ -42,18 +42,19 @@ public class JobsheetDAO {
 		
 	}//insertsheet
 	
-	public String showText(String getdate) {
+	public String showText(String getdate , String m_num) {
 		MemberDAO mDAO = MemberDAO.getInstance();
 		String msg ="";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		String sql = "select text_area1 from jobsheet where sheet_date=?;";
+		String sql = "select text_area1 from jobsheet where sheet_date=? and m_num=?;";
 		try {
 			conn = mDAO.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, getdate);
+			pstmt.setString(2, m_num);
 			rs = pstmt.executeQuery();
 			
 			rs.next();

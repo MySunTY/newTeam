@@ -137,14 +137,14 @@
 				</div>
 	
 				<div id="middle-2">
-					<form id="form2" method="get" action="sheet.do">
+					<form id="form2" method=get action="sheet.do">
 						<div id="content-1">
 							<div class="box6">
 								<h1></h1>
 							</div>
 							<div class="box7">작성자</div>
 							<div class="box8">${m_num }</div>
-							<input type="hidden" name="m_num" value="${m_num }">
+							<input type="hidden" name="m_num" value="${m_num }" id="hidName">
 							<div class="box9">작성일자</div>
 							<div class="box10">
 								<input type="date" name="date">&nbsp;&nbsp;&nbsp;<input
@@ -180,8 +180,10 @@
 			}
 			function createString() {
 				var getdate = document.getElementById("getdate").value;
+				var getM_num = document.getElementById("hidName").value;
 				var dataString = "getdate=" + getdate;
-				return dataString
+				var dataM_num = "m_num="+ getM_num;
+				return dataString+"&"+dataM_num;
 			}
 	
 			function request_doPost() {

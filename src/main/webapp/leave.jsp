@@ -32,8 +32,7 @@ flex-direction: row;
 border: 1px solid black;
 margin-bottom: 30px;
 }
-
-.span {
+ .span {
 flex: 1;
 text-align: center;
 }

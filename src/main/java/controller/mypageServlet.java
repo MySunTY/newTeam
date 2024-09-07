@@ -55,6 +55,12 @@ public class mypageServlet extends HttpServlet {
 			photo = "/img/"+photo;
 		}
 		
+		System.out.println("사번" +m_num);
+		System.out.println("pw : "+pw);
+		System.out.println("phone: "+phone);
+		System.out.println("email : "+email);
+		System.out.println("address : "+address);
+		
 		System.out.println(photo);
 		
 		mDTO.setM_num(m_num);

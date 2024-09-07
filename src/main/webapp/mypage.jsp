@@ -136,7 +136,7 @@ input {
 					<div class="data">
 						<span>이&nbsp;&nbsp;&nbsp;&nbsp;름</span><input type="text"
 							value="${mDTO.name }" readonly><br> <span>사&nbsp;&nbsp;&nbsp;&nbsp;번</span><input
-							type="text" value="${m_num }" readonly><br>
+							type="text" value="${m_num }" name="m_num" readonly><br>
 						
 						 
 						<span>비밀번호</span><input type="text" name="pw">	 <br>

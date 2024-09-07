@@ -129,7 +129,7 @@ input {
 						
 						</div>
 						
-						<input type="file" value="변경" class="changebtn">
+						<input type="file" value="변경" class="changebtn" name="photo">
 					</div>
 
 					<!-- 개인정보 내용 감싸고 있음 -->

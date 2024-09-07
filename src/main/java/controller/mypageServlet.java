@@ -64,6 +64,8 @@ public class mypageServlet extends HttpServlet {
 		mDTO.setPhoto(photo);
 		mDTO.setAddress(address);
 		
+		
+		
 		int updateResult = mDAO.updateMember(mDTO);
 		System.out.println(updateResult);
 		request.getRequestDispatcher("main.jsp").forward(request, response);

@@ -1,4 +1,4 @@
- 
+  
 <%@ page language="java" contentType="text/html; charset=utf-8"
    pageEncoding="utf-8"%>
 <%@ page import="DAO.VacationDAO"%>
@@ -9,16 +9,10 @@
 <html>
 <head>
 <meta charset="utf-8">
-<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
-<script>
-	document.addEventListener('DOMContentLoaded', function() {
-    var calendarEl = document.getElementById('calendar');
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-      initialView: 'dayGridMonth'
-    });
-    calendar.render();
-  });
-</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
 <title>휴가 페이지</title>
 <link rel="stylesheet" href="css/header.css">
 <style>
@@ -32,7 +26,8 @@ flex-direction: row;
 border: 1px solid black;
 margin-bottom: 30px;
 }
- .span {
+
+.span {
 flex: 1;
 text-align: center;
 }
@@ -132,8 +127,8 @@ left:50%;
 }
 
 #calender{
-	width:500px;
-	height:500px;
+   width:500px;
+   height:500px;
 }
 
  

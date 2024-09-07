@@ -217,10 +217,10 @@ public class MemberDAO {
 		int result = 0;  //업데이트 실패하면 0, 성공하면 1
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		
+		mDTO = new MemberDTO();
 		
 		String sql = "update member set pw=? , address=? , email=?, photo=?";
-		sql+= ", phone=? where m_num=? ";
+		sql+= ", phone=? where m_num=?;";
 		
 		try {
 			conn = getConnection();

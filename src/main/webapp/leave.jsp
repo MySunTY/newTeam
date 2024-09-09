@@ -15,6 +15,7 @@
 
 <title>휴가 페이지</title>
 <link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" href="css/footer.css">
 <style>
 
 #middle-1 {

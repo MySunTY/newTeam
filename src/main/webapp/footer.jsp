@@ -36,4 +36,5 @@
                 <a href="#"><img src="image/youtube.svg" alt="youtubelogo"></a>
 
             </div>
+            </div>
         </footer>

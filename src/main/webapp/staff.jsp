@@ -9,6 +9,7 @@
 <title>사원 등록</title>
 <link rel="stylesheet" href="css/header.css">
 <link rel="stylesheet" href="css/footer.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <style>
 
 /* 사원등록 */

@@ -12,7 +12,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <title>휴가 페이지</title>
 <link rel="stylesheet" href="css/header.css">
 <link rel="stylesheet" href="css/footer.css">

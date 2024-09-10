@@ -9,6 +9,7 @@
         <script src="https://cdn.ckeditor.com/ckeditor5/38.1.1/classic/ckeditor.js"></script>
         <title>게시판 글쓰기 페이지</title>
         <link rel="stylesheet" href="css/header.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <style>
         
        	form{

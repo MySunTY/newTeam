@@ -15,10 +15,16 @@
 	padding: 0;
 	box-sizing: border-box;
 	list-style: none;
+	 
 }
 
 a {
 	text-decoration: none;
+}
+
+#wrap{
+   
+
 }
 
 body {
@@ -30,10 +36,6 @@ body {
 	font-style: normal;
 	background-color: rgb(202, 202, 202);
 	padding-top: 160px;
-}
-
-#wrap {
-	
 }
 
 a {
@@ -76,32 +78,48 @@ a {
 }
 
 .top2 {
-	/* width: 150px; */
-	height: 100%;
+	width: 200px;  
+	height: 80px;
+	 
 	/*  추가 */
 	margin-right: 23%;
 	font-weight: 300;
 	font-size: 0.8em;
-	position: absolute;
+	position: fixed;
 	top: 0;
-	right:0;
+	right: 50px;
+ 
+	 
 }
 
+.logout{
+	width: 200px;  
+	height: 80px;
+	 
+	position: fixed;
+	top: 0;
+	right: 300px;
+}
+
+ 
 .bar {
 	height: 3px;
 	background-color: #1537a7;
 	position: absolute;
 	left: 20%;
 	bottom: 0;
+	 
 }
+ 
+
 
 .logout a {
+
+ 
+    text-align: center;
 	color: #fff;
 	font-weight: 200;
 	font-size: 0.8em;
-	position: absolute;
-	top: 0;
-	right: 360px;
 }
 
 /* 공지사항, 출퇴근관리, 휴가관리, 업무일지 등을 감싸고 있음 */
@@ -126,25 +144,21 @@ a {
 .menu>li {
 	/* display: inline-block;  */
 	text-align: center;
-	width: 16.6%;
+	width: 16.67%;
 }
 
 .submenu {
 	position: absolute;
 	top: 80px;
 	right: 0;
-	width: 16.6%;
-	height: 100%;
+	width: 16.67%;
+	height: 200%;
 	background-color: #eee;
 	border-radius: 10x;
 	opacity: 1.3;
 	display: none;
 }
 
-/*  .mainmenu>ul>li:hover {
-    background-color: #1537a7;
-     
-}  */
 .mainmenu>ul>li>a {
 	display: inline-block;
 	width: 100%;
@@ -152,27 +166,22 @@ a {
 	letter-spacing: 0.05em;
 }
 
-.mainmenu>ul>li>a:hover {
-	color: #1537a7;
-}
-
-.submenu>li>a:hover {
-	color: #1537a7;
+.submenu>li:hover {
+	background-color: #1537a7;
+	a {color: #fff;}
 }
 
 .contents {
 	width: 1240px;
-	height: 1200px;
+	height: 1000px;
 	background-color: #fff;
 	margin-top: 10px;
 	border-radius: 20px;
 	overflow: hidden;
-	
+	/*background-image: url(image/grid.png) no-repeat;*/
 }
 
-.contents::after {
-	
-}
+ 
 
 .sublist {
 	list-style: none;
@@ -190,4 +199,18 @@ a {
 h2 {
 	color: #1537a7;
 	height: 100px;
+}
+ 
+ 
+/* 모바일  */
+@media(max-width: 600px)   {
+	.menu li a {
+	  
+  }
+}
+/* 태블릿 */
+@media(min-width: 600px) and (max-width:990px)   {
+	.menu li a {
+	   
+  }
 }

@@ -7,74 +7,98 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>마이페이지</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 		<link rel="stylesheet" href="css/header.css">
 		<link rel="stylesheet" href="css/footer.css">
 		<style>
 		/* 마이페이지 내용 */
 		.data {
-			width: 100%;
-		}
-		.change {
-			width: 860px;
-			height: 860px;
-		}
-		.change {
-			width: 860px;
-			height: 860px;
-			border: 1px solid #ddd;
-			margin: 0 auto;
-			padding: 20px;
-			border-radius: 10px;
-		}
-		.picture {
-			width: 100px;
-			height: 120px;
-		    background-color: #ddd; 
-			border:1px solid #ddd;
-		}
-		.data span {
-			display: inline-block;
-			width: 70px;
-		}
-		.picture_btn, .data, .btn {
-			text-align: center;
-			margin-top: 20px;
-		}
-		.data input {
-			width: 350px;
-		}
-		.btn input {
-			width: 200px;
-		}
-		img {
-			width: 100px;
-			height: 100px;
-			
-		}
-		.btn input{
-			width: 120px;
-			border:none;
-			border-radius: 10px;}
-			
-		.btn input:nth-child(2n){
-				background-color:  #1537a7;
-				color:#fff;}	
-		
-		input {
-			width: 60%;
-			height: 40px;
-			margin: 10px;
-		}
-		.data span {
-			text-align: justify;
-		}
-		.changebtn {
-			background-color:#ccc;
-			color: #fff;
-			 
-			width: 100px;
-			border: none;
-		}
+	width: 100%;
+}
+
+.change {
+	width: 860px;
+	height: 860px;
+}
+
+.change {
+	width: 860px;
+	height: 860px;
+	border: 1px solid #ddd;
+	margin: 0 auto;
+	padding: 20px;
+	border-radius: 10px;
+}
+
+
+.picture {
+	width: 150px;
+	height: 170px;
+    background-color: #ddd; 
+	border:1px solid #ddd;
+	
+}
+
+.picture img{
+	width: 150px;
+	height: 170px;
+}
+ 
+.data span {
+	display: inline-block;
+	width: 70px;
+}
+
+.picture_btn, .data, .btn {
+	text-align: center;
+	margin-top: 20px;
+}
+
+.data input {
+	width: 350px;
+	margin-bottom: 25px;
+}
+
+.btn input {
+	width: 200px;
+}
+
+img {
+	width: 100px;
+	height: 100px;
+	
+}
+
+.btn input{
+	width: 120px;
+	border:none;
+	border-radius: 10px;}
+	
+.btn input:nth-child(2n){
+		background-color:  #1537a7;
+		color:#fff;}	
+
+input {
+	width: 60%;
+	height: 40px;
+	margin: 10px;
+}
+
+.data span {
+	text-align: justify;
+}
+
+.changebtn {
+	background-color:#ccc;
+	color: #fff;
+	 
+	width: 100px;
+	border: none;
+}
+
+.changebtn:hover {
+	 background-color:#eee;
+}
 		</style>
 	</head>
 	<body>
